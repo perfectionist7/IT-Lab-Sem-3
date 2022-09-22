@@ -10,10 +10,12 @@ int main() {
     gets(s2);
     cout << "Enter the position of the string to be placed: ";
     cin >> pos;
-    for(int i=1; i<=strlen(s1)-pos;i++) {
-        s1[strlen(s1)+strlen(s2)-i] = s1[strlen(s1)-i];
+    int n1 = strlen(s1);
+    int n2 = strlen(s2);
+    for(int i=1; i<=n1-pos;i++) {
+        s1[n1+n2-i] = s1[n1-i];
     }
-    for(int j=0; j<strlen(s2); j++) {
+    for(int j=0; j<n2; j++) {
         s1[pos+j] = s2[j];
     }
     cout << s1;
