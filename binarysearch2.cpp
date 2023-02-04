@@ -1,19 +1,30 @@
 #include <iostream>
 using namespace std;
 int binarysearch(int l, int r, int x, int arr[]) {
+    int c;
+    c++;
     if(r>=l) {
         int mid = (l + (r-l))/2;
+        c++;
+        c++;
         if(arr[mid]==x) {
             return mid;
+            c++;
         }
+        c++;
         if(arr[mid] > x) {
             return binarysearch(mid+1,r,x,arr);
+            c++;
         }
         else {
             return binarysearch(l,mid-1,x,arr);
+            c++;
         }
     }
+    c++;
+    cout << c << endl;
     return -1;
+
 }
 int main() {
     int n;
