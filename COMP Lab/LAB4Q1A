@@ -1,0 +1,9 @@
+CODE SEGMENT
+    ASSUME CS:CODE
+    START: MOV AX,10AAH
+           MOV BX,0010H
+           MUL BX
+           MOV AH,4CH
+           INT 21H
+CODE ENDS
+END START
