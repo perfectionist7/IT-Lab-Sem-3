@@ -1,0 +1,24 @@
+DATA SEGMENT
+A DW 1111H
+B DW 0002H
+ANS DD 0
+DATA ENDS
+
+CODE SEGMENT
+ASSUME CS: CODE, DS: DATA
+START:  MOV AX, DATA
+        MOV DS, AX
+
+        MOV CX, B
+        MOV AX, 0
+        MOV BX, 0
+BACK:   ADD AX, A
+        ADC BL, 0
+        LOOP BACK
+        MOV WORD PTR ANS, BX
+        MOV WORD PTR ANS + 2, AX
+
+        MOV AH, 4CH
+        INT 21H
+CODE ENDS
+END START
