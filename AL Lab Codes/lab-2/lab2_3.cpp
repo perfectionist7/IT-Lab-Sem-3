@@ -1,88 +1,59 @@
 #include <iostream>
+#include <stack>
 #include <queue>
-
 using namespace std;
-
-class Node
+void mother(int a[100][100], int n, int s)
 {
-public:
-    int val;
-    Node *next = NULL;
-};
-
-void add(Node *&head, int val)
-{
-    if (!head)
-    {
-        head = new Node;
-        head->val = val;
-        return;
-    }
-    Node *temp = head;
-    while (temp->next != NULL)
-        temp = temp->next;
-
-    Node *newn = new Node;
-    newn->val = val;
-    temp->next = newn;
-}
-
-bool motherVertexHelper(Node *graph[], int n, int src)
-{
-    queue<int> q;
-    int visited[n];
-    for (int i = 0; i < n; i++)
+    stack<int> stck;
+    int visited[n + 1];
+    for (int i = 1; i <= n; i++)
     {
         visited[i] = 0;
     }
-    visited[src] = 1;
-    int numvis = 1;
-    q.push(src);
-
-    while (!q.empty())
+    stck.push(s);
+    visited[s] = 1;
+    while (!stck.empty())
     {
-        Node *temp = graph[q.front()];
-        numvis++;
-        q.pop();
-
-        while (temp != NULL)
+        int u = stck.top();
+        stck.pop();
+        for (int i = 1; i <= n; i++)
         {
-            if (visited[temp->val] == 0)
+            if (a[u][i] == 1 && visited[i] != 1)
             {
-                visited[temp->val] = 1;
-                q.push(temp->val);
+                stck.push(i);
+                visited[i] = 1;
             }
-            temp = temp->next;
         }
     }
-    return (numvis == n);
+    for (int i = 1; i <= n; i++)
+    {
+        if (visited[i] == 0)
+        {
+            return;
+        }
+    }
+    cout << "Mother vertex:" << s;
 }
 
-void motherVertex(Node *graph[], int n)
-{
-    cout << "Mother Vertex are: ";
-    for (int i = 1; i < n; i++)
-    {
-        if (motherVertexHelper(graph, n, i))
-            cout << i << " ";
-    }
-}
 int main()
 {
-    int n;
-    cout << "Enter size:";
-    cin >> n;
-    Node *graph[n + 1] = {NULL};
-    cout << "Enter edges:" << endl;
-    int a = 0, b = 0;
-    while (true)
+    int v, e, a[100][100];
+    cout << "Enter no. of vertices" << endl;
+    cin >> v;
+    cout << "Enter no. of edges" << endl;
+    cin >> e;
+    int p, q;
+    for (int i = 1; i <= e; i++)
     {
-        cin >> a >> b;
-        if (a != -1 && b != -1)
-            add(graph[a], b);
-        else
-            break;
+        cout << "Enter the source" << endl;
+        cin >> p;
+        cout << "Enter the destination" << endl;
+        cin >> q;
+        a[p][q] = 1;
     }
-    int visited[n + 1] = {0};
-    motherVertex(graph, n + 1);
+    for (int i = 1; i <= v; i++)
+    {
+        mother(a, v, i);
+        cout << endl;
+    }
 }

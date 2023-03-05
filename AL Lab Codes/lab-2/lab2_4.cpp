@@ -1,81 +1,57 @@
 #include <iostream>
-#include <queue>
-
 using namespace std;
-
-class Node
+void Transpose(int a[100][100], int v)
 {
-public:
-    int val;
-    Node *next = NULL;
-};
-
-void add(Node *&head, int val)
-{
-    if (!head)
+    int b[100][100];
+    for (int i = 1; i <= v; i++)
     {
-        head = new Node;
-        head->val = val;
-        return;
+        for (int j = 1; j <= v; j++)
+        {
+            b[i][j] = a[j][i];
+        }
     }
-    Node *temp = head;
-    while (temp->next != NULL)
-        temp = temp->next;
 
-    Node *ntemp = new Node;
-    ntemp->val = val;
-    temp->next = ntemp;
-}
-
-void display(Node *head)
-{
-    Node *temp = head;
-    while (temp != NULL)
+    for (int i = 1; i <= v; i++)
     {
-        cout << temp->val << " ";
-        temp = temp->next;
+        for (int j = 1; j <= v; j++)
+        {
+            cout << b[i][j] << " ";
+        }
+        cout << endl;
     }
 }
 int main()
 {
     int n;
-    cout << "Enter size:";
+    cout << "No. of vertices: ";
     cin >> n;
-    Node *graph[n + 1] = {NULL};
-    cout << "Enter edges:" << endl;
-    int a = 0, b = 0;
-    while (true)
+
+    int m;
+    cout << "No. of edges: ";
+    cin >> m;
+
+    int arr[100][100] = {0};
+
+    cout << "Enter the edges in the graph: " << endl;
+    int p, q;
+    for (int i = 0; i < m; i++)
     {
-        cin >> a >> b;
-        if (a != -1 && b != -1)
-            add(graph[a], b);
-        else
-            break;
-    }
-    cout << "Before Transpose:" << endl;
-    for (int i = 1; i < n + 1; i++)
-    {
-        cout << i << "->";
-        display(graph[i]);
-        cout << endl;
+        cin >> p >> q;
+        arr[p][q] = 1;
+        arr[q][p] = 1;
     }
 
-    Node *trans[n + 1] = {NULL};
+    cout << "Adjaceny Matrix before transpose: " << endl;
     for (int i = 1; i < n + 1; i++)
     {
-        Node *curr = graph[i];
-        while (curr)
+        for (int j = 1; j < n + 1; j++)
         {
-            add(trans[curr->val], i);
-            curr = curr->next;
+            cout << arr[i][j] << " ";
         }
-    }
-
-    cout << "After Transpose:" << endl;
-    for (int i = 1; i < n + 1; i++)
-    {
-        cout << i << "->";
-        display(trans[i]);
         cout << endl;
     }
+
+    int visited[100] = {0};
+    cout << "Adjacency Matrix after transpose: " << endl;
+    Transpose(arr, n);
 }
