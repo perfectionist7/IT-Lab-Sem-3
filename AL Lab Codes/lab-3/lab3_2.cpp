@@ -1,77 +1,77 @@
 #include <iostream>
 #include <queue>
-
 using namespace std;
-
-class Node
+bool path_bfs(int v, int e, int reach[], int start, int a[][20])
 {
-public:
-    int val;
-    Node *next = NULL;
-};
-
-void add(Node *&head, int val)
-{
-    if (!head)
+    queue<int> q;
+    reach[start] = 1;
+    q.push(start);
+    int w;
+    while (!q.empty())
     {
-        head = new Node;
-        head->val = val;
-        return;
-    }
-    Node *temp = head;
-    while (temp->next != NULL)
-        temp = temp->next;
 
-    Node *newn = new Node;
-    newn->val = val;
-    temp->next = newn;
-}
+        w = q.front();
+        // cout<<w<<" -> ";
+        q.pop();
 
-bool path(Node *graph[], int visited[], int src, int dest)
-{
-    Node *temp = graph[src];
-    while (temp != NULL)
-    {
-        if (visited[temp->val] == 0)
+        for (int u = 1; u <= v; u++)
         {
-            if (temp->val == dest || path(graph, visited, temp->val, dest))
-            {
-                visited[temp->val] = 1;
+            if (u == start)
                 return true;
+            if (a[w][u] != 0 && !reach[u])
+            {
+                q.push(u);
+                reach[u] = 1;
             }
         }
-        temp = temp->next;
     }
     return false;
 }
-
-bool cycles(Node *graph[], int n)
-{
-    bool found = false;
-    for (int i = 1; i < n; i++)
-    {
-        int visited[n] = {0};
-        if (path(graph, visited, i, i))
-            found = true;
-    }
-    return found;
-}
-
 int main()
 {
-    int n;
-    cout << "Enter size:";
-    cin >> n;
-    Node *graph[n] = {NULL};
-    cout << "Enter edges:" << endl;
-    int a = 0, b = 0;
-    while (true)
+    int n, A[20][20], v, e;
+    cout << "Enter the no of vertices";
+    cin >> v;
+    cout << "Enter the no of edges ";
+    cin >> e;
+    for (int i = 1; i <= v; i++)
     {
-        cin >> a >> b;
-        if (a != -1 && b != -1)
-            add(graph[a], b);
-        else
-            break;
+        for (int j = 1; j <= v; j++)
+        {
+            A[i][j] = 0;
+        }
     }
-    cycles(graph, n) ? cout << "Cycle exists" : cout << "Cycle absent";
+
+    int p, q;
+    for (int i = 1; i <= e; i++)
+    {
+        cout << "enter source";
+        cin >> p;
+        cout << "enter destination";
+        cin >> q;
+        A[p][q] = 1;
+    }
+    for (int i = 1; i <= v; i++)
+    {
+        for (int j = 1; j <= v; j++)
+        {
+            cout << A[i][j] << " ";
+        }
+        cout << "\n";
+    }
+
+    cout << "Enter starting vertex";
+    int start;
+    cin >> start;
+    int enda;
+    cout << "enter ending vertex";
+    cin >> enda;
+    int visited[30] = {0};
+
+    if (path_bfs(v, e, visited, start, A))
+        cout << "CYCLE exists\n";
+    else
+        cout << "CYC doesn't exists\n";
+    cout << "\n";
+    return 0;
 }
