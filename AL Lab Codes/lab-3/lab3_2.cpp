@@ -1,77 +1,65 @@
-#include <iostream>
 #include <queue>
+#include <stack>
+#include <iostream>
 using namespace std;
-bool path_bfs(int v, int e, int reach[], int start, int a[][20])
+
+int cnt = 0;
+
+bool bfs(int adjmat[][10], int n, int e, int source, int destination)
 {
+    int visited[n];
+    for (int i = 0; i < n; i++)
+        visited[i] = 0;
     queue<int> q;
-    reach[start] = 1;
-    q.push(start);
-    int w;
+    q.push(source);
+    int c = 0;
+    // visited[source]=1;
     while (!q.empty())
     {
-
-        w = q.front();
-        // cout<<w<<" -> ";
+        int h = q.front();
         q.pop();
-
-        for (int u = 1; u <= v; u++)
+        for (int i = 0; i < n; i++)
         {
-            if (u == start)
-                return true;
-            if (a[w][u] != 0 && !reach[u])
+            if (adjmat[h][i] == 1 && visited[i] == 0)
             {
-                q.push(u);
-                reach[u] = 1;
+                q.push(i);
+                visited[i] = 1;
             }
         }
+        cout << h << " ";
+        if (c != 0)
+            if (h == destination)
+                return true;
+        c++;
     }
     return false;
 }
+
 int main()
 {
-    int n, A[20][20], v, e;
-    cout << "Enter the no of vertices";
-    cin >> v;
-    cout << "Enter the no of edges ";
+    int adjmat[10][10], n, e;
+    cnt = 0;
+    cout << "nodes";
+    cin >> n;
+    cout << "edges";
     cin >> e;
-    for (int i = 1; i <= v; i++)
-    {
-        for (int j = 1; j <= v; j++)
-        {
-            A[i][j] = 0;
-        }
-    }
 
-    int p, q;
-    for (int i = 1; i <= e; i++)
-    {
-        cout << "enter source";
-        cin >> p;
-        cout << "enter destination";
-        cin >> q;
-        A[p][q] = 1;
-    }
-    for (int i = 1; i <= v; i++)
-    {
-        for (int j = 1; j <= v; j++)
-        {
-            cout << A[i][j] << " ";
-        }
-        cout << "\n";
-    }
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            adjmat[i][j] = 0;
 
-    cout << "Enter starting vertex";
-    int start;
-    cin >> start;
-    int enda;
-    cout << "enter ending vertex";
-    cin >> enda;
-    int visited[30] = {0};
-
-    if (path_bfs(v, e, visited, start, A))
-        cout << "CYCLE exists\n";
-    else
-        cout << "CYC doesn't exists\n";
-    cout << "\n";
-    return 0;
+    int s, d;
+    for (int i = 0; i < e; i++)
+    {
+        cout << "source";
+        cin >> s;
+        cout << "destination";
+        cin >> d;
+        adjmat[s][d] = 1;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (bfs(adjmat, n, e, i, i))
+            cout << "Yes Cycle Exist for " << i << endl;
+    }
 }
