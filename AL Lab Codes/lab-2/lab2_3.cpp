@@ -1,82 +1,59 @@
 #include <iostream>
+#include <stack>
 using namespace std;
-int n;
-int motherve(int w, int visited[], int arr[][20])
+void Mother(int a[100][100], int n, int s)
 {
-    int u, v, i;
-    int count = 0;
-    for (i = 1; i < n + 1; i++)
+    stack<int> S;
+    int visited[100];
+    for (int i = 1; i <= n; i++)
     {
         visited[i] = 0;
     }
-    int s[20], top = -1;
-    s[++top] = w;
-    visited[w] = 1;
-    while (top != -1)
+    S.push(s);
+    visited[s] = 1;
+    while (!S.empty())
     {
-        u = s[top--];
-        count++;
-        for (v = 1; v <= n + 1; v++)
+        int u = S.top();
+        S.pop();
+        for (int i = 1; i <= n; i++)
         {
-            if (arr[u][v] == 1 && visited[v] == 0)
+            if (a[u][i] == 1 && visited[i] == 0)
             {
-                s[++top] = v;
-                visited[v] = 1;
+                S.push(i);
+                visited[i] = 1;
             }
         }
     }
-    return count;
+    for (int i = 1; i <= n; i++)
+    {
+        if (visited[i] == 0)
+        {
+            return;
+        }
+    }
+    cout << "Mother vertex --> " << s;
+    cout << endl;
 }
 int main()
 {
-    int m;
-    cout << "Enter the no of vertices";
-    cin >> m;
-    n = m;
-    int adjmat[20][20], i, j;
-    for (i = 1; i <= m; i++)
+    int v, e;
+    cout << "Enter the number of vertices" << endl;
+    cin >> v;
+    cout << "Enter the number of edges" << endl;
+    cin >> e;
+    int a[100][100];
+    int p, q;
+    cout << "Enter the verticies from 1 " << endl;
+    for (int i = 1; i <= e; i++)
     {
-        for (j = 1; j <= m; j++)
-        {
-            adjmat[i][j] = 0;
-        }
+        cout << "Enter the source " << endl;
+        cin >> p;
+        cout << "Enter the destination " << endl;
+        cin >> q;
+        a[p][q] = 1;
     }
-    int u, v;
-    cout << "Enter the position of vertices that are adjacent";
-    for (i = 1; i <= m; i++)
+    for (int i = 1; i <= v; i++)
     {
-        for (j = 1; j < n + 1; j++)
-        {
-            cin >> u >> v;
-            if (u > 0 & v > 0)
-                adjmat[u][v] = 1;
-            else
-                break;
-        }
-        if (u < 1 || v < 1)
-            break;
+        Mother(a, v, i);
     }
-    cout << "Adjacency matrix";
-    for (i = 1; i <= m; i++)
-    {
-        for (j = 1; j <= m; j++)
-        {
-            cout << adjmat[i][j] << " ";
-        }
-        cout << endl;
-    }
-    int visited[n];
-    for (i = 1; i <= n; i++)
-    {
-        visited[i] = 0;
-    }
-    for (i = 1; i < n + 1; i++)
-    {
-        if (motherve(i, visited, adjmat) == n)
-        {
-            cout << "Mother vertex is " << i;
-            break;
-        }
-    }
-    return 0;
 }

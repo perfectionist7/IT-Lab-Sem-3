@@ -31,7 +31,7 @@ int main()
     cin >> n;
 
     int m;
-    cout << "No. of edges: ";
+    cout << "No. of edges (from 1): ";
     cin >> m;
 
     int arr[100][100] = {0};

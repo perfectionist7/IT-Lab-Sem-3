@@ -25,14 +25,15 @@ void insertionSort(int a[], int n)
 int main()
 {
   int n;
-  cout << "Enter the size of the array:";
+  cout << "Enter the size of the array: ";
   cin >> n;
   int a[n];
+  cout << "Enter the elements of the array: ";
   for (int i = 0; i < n; i++)
   {
-
     cin >> a[i];
   }
+  cout << "The sorted array is: ";
   insertionSort(a, n);
   for (int i = 0; i < n; i++)
   {

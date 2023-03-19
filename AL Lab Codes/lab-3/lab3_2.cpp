@@ -8,7 +8,7 @@ int cnt = 0;
 bool bfs(int adjmat[][10], int n, int e, int source, int destination)
 {
     int visited[n];
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
         visited[i] = 0;
     queue<int> q;
     q.push(source);
@@ -18,7 +18,7 @@ bool bfs(int adjmat[][10], int n, int e, int source, int destination)
     {
         int h = q.front();
         q.pop();
-        for (int i = 0; i < n; i++)
+        for (int i = 1; i <= n; i++)
         {
             if (adjmat[h][i] == 1 && visited[i] == 0)
             {
@@ -39,27 +39,27 @@ int main()
 {
     int adjmat[10][10], n, e;
     cnt = 0;
-    cout << "nodes";
+    cout << "Enter the number of vertices: ";
     cin >> n;
-    cout << "edges";
+    cout << "Enter the number of edges: ";
     cin >> e;
-
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
+    cout << "Enter the verticies from 1 " << endl;
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= n; j++)
             adjmat[i][j] = 0;
 
     int s, d;
-    for (int i = 0; i < e; i++)
+    for (int i = 1; i <= e; i++)
     {
-        cout << "source";
+        cout << "Enter the source: ";
         cin >> s;
-        cout << "destination";
+        cout << "Enter the destination: ";
         cin >> d;
         adjmat[s][d] = 1;
     }
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
         if (bfs(adjmat, n, e, i, i))
-            cout << "Yes Cycle Exist for " << i << endl;
+            cout << "Yes, a cycle exists for: " << i << endl;
     }
 }

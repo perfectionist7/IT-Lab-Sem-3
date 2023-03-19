@@ -25,7 +25,7 @@ int main()
 
     int arr[100][100] = {0};
 
-    cout << "Enter the edges in the graph: " << endl;
+    cout << "Enter the edges in the graph (from 1): " << endl;
     int p, q;
     for (int i = 0; i < m; i++)
     {

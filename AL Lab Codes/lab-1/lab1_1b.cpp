@@ -1,56 +1,43 @@
-#include <iostream>
+
+#include <bits/stdc++.h>
 using namespace std;
-int binSearRecFun(int[], int, int, int);
-int c;
-int main()
+
+int binarySearch(int arr[], int l, int r, int x)
 {
-  int i, arr[100], n, num, pos;
-  
-  cout<<"enter size of array";
-  cin>>n;
-  cout << "Enter elements (in ascending order): ";
-  for (i = 0; i < n; i++)
-    cin >> arr[i];
-  cout << "\nEnter element to be search: ";
-  cin >> num;
-  pos = binSearRecFun(arr, 0, n - 1, num);
-  if (pos == 0)
-    cout << endl
-         << num << " is not available in the list";
-  else
-    cout << endl
-         << num << " is available at Position " << pos;
-  cout << endl;
-   cout << "\n Steps: " << c;
-  return 0;
- 
+  while (l <= r)
+  {
+    int m = l + (r - l) / 2;
+
+    if (arr[m] == x)
+      return m;
+
+    if (arr[m] < x)
+      l = m + 1;
+
+    else
+      r = m - 1;
+  }
+
+  return -1;
 }
-int binSearRecFun(int arr[], int first, int last, int num)
+
+int main(void)
 {
-  int middle;
-  c++;
-  if (first > last)
+  int n;
+  cout << "Enter the size of the array: ";
+  cin >> n;
+  int arr[n];
+  cout << "Enter the elements of the array (in ascending order): ";
+  for (int i = 0; i < n; i++)
   {
-    return 0;
-    c++;
+    cin >> arr[i];
   }
-  middle = (first + last) / 2;
-  c++;
-  if (arr[middle] == num)
-  {
-    c++;
-    c++;
-    return (middle + 1);
-  }
-  else if (arr[middle] > num)
-  {
-    c++;
-    binSearRecFun(arr, first, middle - 1, num);
-  }
-  else if (arr[middle] < num)
-  {
-    c++;
-    binSearRecFun(arr, middle + 1, last, num);
-  }
-  return middle;
+  cout << "Enter the target element: ";
+  int x;
+  cin >> x;
+  int result = binarySearch(arr, 0, n - 1, x);
+  (result == -1)
+      ? cout << "Element is not present in array"
+      : cout << "Element is present at index " << result;
+  return 0;
 }

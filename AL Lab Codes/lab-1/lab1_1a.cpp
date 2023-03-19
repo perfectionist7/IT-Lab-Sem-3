@@ -1,54 +1,41 @@
-#include<iostream>
-using namespace std ;
-int c;
-void BinarySearch(int arr[],int first,int last,int key)
+
+#include <bits/stdc++.h>
+using namespace std;
+int binarySearch(int arr[], int l, int r, int x)
 {
-   int  mid=(first+last)/2;
-    c++;
-      while(mid!=key && first<=last)
-      {   c++;
-          
-          if(key<mid)
-            {
-               last=mid-1;
-               c++;
-            }
+  if (r >= l)
+  {
+    int mid = l + (r - l) / 2;
 
-          else if(key>mid)
-           {
-             first=mid+1;
-              c++;
-           }
-        
-         mid=(first+last)/2;
-         c++;
+    if (arr[mid] == x)
+      return mid;
 
-      }
-      c++;
+    if (arr[mid] > x)
+      return binarySearch(arr, l, mid - 1, x);
 
-      if(mid==key)
-      { c++;
-        cout<<"key found";
-      }
-      else
-      {
-        c++;
-       cout<<"not found";
-      }
+    return binarySearch(arr, mid + 1, r, x);
+  }
+
+  return -1;
 }
-int main()
+
+int main(void)
 {
-    int arr[100],n,key;
-    cout<<"enter the size\n";
-    cin>>n;
-    cout<<"enter the array\n";
-    for(int i=0;i<n;i++)
-    {
-      cin>>arr[i]  ;
-    }
-    cout<<"enter key\n";
-    cin>>key;
-    BinarySearch(arr,arr[0],arr[n-1],key);
-     cout<<"\n Steps: "<<c;
-    return 0;
+  cout << "Enter the number of elements in the array (in ascending order): ";
+  int n;
+  cin >> n;
+  int arr[n];
+  cout << "Enter the elements of the array: ";
+  for (int i = 0; i < n; i++)
+  {
+    cin >> arr[i];
+  }
+  cout << "Enter the target element: ";
+  int x;
+  cin >> x;
+  int result = binarySearch(arr, 0, n - 1, x);
+  (result == -1)
+      ? cout << "Element is not present in array"
+      : cout << "Element is present at index " << result;
+  return 0;
 }

@@ -1,91 +1,69 @@
-#include <iostream>
-#include <queue>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-class Node
-{
-public:
-    int val;
-    Node *next = NULL;
-};
+int cnt = 0;
 
-void add(Node *&head, int val)
+int bfs(int adjmat[][10], int n, int e, int source)
 {
-    if (!head)
-    {
-        head = new Node;
-        head->val = val;
-        return;
-    }
-    Node *temp = head;
-    while (temp->next != NULL)
-        temp = temp->next;
-
-    Node *newn = new Node;
-    newn->val = val;
-    temp->next = newn;
-}
-
-bool motherVertexHelper(Node *graph[], int n, int src)
-{
-    // Search for mother vertex using BFS
-    queue<int> q;
     int visited[n];
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 1; i <= n; i++)
         visited[i] = 0;
-    }
-    visited[src] = 1;
-    int numvis = 1;
-    q.push(src);
-
+    queue<int> q;
+    q.push(source);
+    visited[source] = 1;
+    cnt++;
     while (!q.empty())
     {
-        Node *temp = graph[q.front()];
-        numvis++;
+        int h = q.front();
         q.pop();
-
-        while (temp != NULL)
+        for (int i = 1; i <= n; i++)
         {
-            if (visited[temp->val] == 0)
+            if (adjmat[h][i] == 1 && visited[i] == 0)
             {
-                visited[temp->val] = 1;
-                q.push(temp->val);
+                q.push(i);
+                visited[i] = 1;
+                cnt++;
             }
-            temp = temp->next;
         }
+        cout << h << " ";
     }
-    return (numvis == n);
+    cout << endl;
+    return cnt;
 }
 
-bool connected(Node *graph[], int n)
-{
-    // Concept: If a mother vertex exists i.e. every edge can be reached from M.V. , then the graph is connected.
-    bool found = false;
-    for (int i = 1; i < n; i++)
-    {
-        if (motherVertexHelper(graph, n, i))
-            found = true;
-    }
-    return found;
-}
 int main()
 {
-    int n;
-    cout << "Enter size:";
+    int adjmat[10][10], n, e;
+    cnt = 0;
+    cout << "Enter the number of vertices: ";
     cin >> n;
-    Node *graph[n + 1] = {NULL};
-    cout << "Enter edges:" << endl;
-    int a = 0, b = 0;
-    while (true)
+    cout << "Enter the number of edges: ";
+    cin >> e;
+    cout << "Enter the verticies from 1 " << endl;
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= n; j++)
+            adjmat[i][j] = 0;
+
+    int s, d;
+    for (int i = 1; i <= e; i++)
     {
-        cin >> a >> b;
-        if (a != -1 && b != -1)
-            add(graph[a], b);
-        else
-            break;
+        cout << "Enter the source: ";
+        cin >> s;
+        cout << "Enter the destination: ";
+        cin >> d;
+        adjmat[s][d] = 1;
+        adjmat[d][s] = 1;
     }
-    int visited[n] = {0};
-    connected(graph, n + 1) ? cout << "Graph connected\n" : cout << "Graph disconnected\n";
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n; j++)
+        {
+            cout << adjmat[i][j] << " ";
+        }
+        cout << endl;
+    }
+    if (n == bfs(adjmat, n, e, 1))
+        cout << "This is a connected graph" << endl;
+    else
+        cout << "This is a disconnected graph" << endl;
 }
