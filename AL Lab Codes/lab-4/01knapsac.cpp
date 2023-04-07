@@ -1,25 +1,68 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-int knapsack(int w,int wt[],int val[],int n)
+class knapsack
 {
-
-if(n==0 || w==0)
-{
-    return 0;
-}
-if(wt[n-1]>w)
-{
-    return knapsack(w,wt,val,n);
-}
-else{
-    return max(val[n-1]+knapsack(w-wt[n-1],wt,val,n-1),knapsack(w,wt,val,n-1));
-}
-}
+public:
+    float weight;
+    float profitbyweight;
+    float profit;
+};
 int main()
 {
-      int profit[]={100,50,10,30};
-      int weight[]={10,20,30,40};
-      int w=90;
-      int n = sizeof(profit) / sizeof(profit[0]);
-      cout<<knapsack(w,weight,profit,n)<<" ";
+    int n;
+    int c;
+    knapsack temp;
+    cout << "Enter the number of items: ";
+    cin >> n;
+    knapsack k[n];
+    cout << "Enter the capacity: ";
+    cin >> c;
+
+    cout << "Enter weights: ";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> k[i].weight;
+    }
+    cout << "Enter profits: ";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> k[i].profit;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        k[i].profitbyweight = float(k[i].profit / k[i].weight);
+    }
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (k[j + 1].profitbyweight >= k[j].profitbyweight)
+            {
+                temp = k[j];
+                k[j] = k[j + 1];
+                k[j + 1] = temp;
+            }
+        }
+    }
+    int profit = 0;
+    int m = 0;
+    while (c > 0)
+    {
+
+        if (c >= k[m].weight)
+        {
+            profit += k[m].profit;
+            c = c - k[m].weight;
+            m++;
+        }
+        else
+        {
+            m++;
+        }
+        if (m >= n)
+        {
+            break;
+        }
+    }
+    cout << "Total profit is " << profit << endl;
 }
