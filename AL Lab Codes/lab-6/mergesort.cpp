@@ -1,47 +1,108 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
+void merge(int *a, int l, int m, int r)
+{
+    int i, j, k, nl, nr;
 
-void merge(int arr[],int low, int mid, int high){
-    int i=low;
-    int k=low;
-    int j=mid+1;
-    int c[20];
+    nl = m - l + 1;
 
-    while (i<=mid && j<=high){
-        if (arr[i] < arr[j]){
-            c[k++] = arr[i++];
+    nr = r - m;
+
+    int la[nl], ra[nr];
+
+    for (i = 0; i < nl; i++)
+    {
+
+        la[i] = a[l + i];
+    }
+
+    for (j = 0; j < nr; j++)
+    {
+
+        ra[j] = a[m + 1 + j];
+    }
+
+    i = 0;
+
+    j = 0;
+
+    k = l;
+
+    while (i < nl && j < nr)
+    {
+        if (la[i] <= ra[j])
+        {
+
+            a[k] = la[i];
+
+            i++;
         }
+        else
+        {
 
-        else{
-            c[k++] = arr[j++];
+            a[k] = ra[j];
+
+            j++;
         }
+        k++;
     }
-    while (i <= mid){
-        c[k++] = arr[i++];
+
+    while (i < nl)
+    {
+
+        a[k] = la[i];
+
+        i++;
+        k++;
     }
-    while (j <= high){
-        c[k++] = arr[j++];
-    }
-    for (i=low;i<k;i++){
-        arr[i] = c[i];
+
+    while (j < nr)
+    {
+
+        a[k] = ra[j];
+
+        j++;
+        k++;
     }
 }
 
-void mergesort(int arr[], int low, int high){
-    int mid;
-    if (low < high){
-        mid = (low + high)/2;
-        mergesort(arr,low,mid);
-        mergesort(arr,mid+1,high);
-        merge(arr,low,mid,high);
+void mergeSort(int *a, int l, int r)
+{
+    int m;
+
+    if (l < r)
+    {
+
+        int m = l + (r - l) / 2;
+
+        mergeSort(a, l, m);
+
+        mergeSort(a, m + 1, r);
+
+        merge(a, l, m, r);
     }
 }
+int main()
+{
+    int n;
 
-int main(){
-    int arr[20] = {3,10,7,4,0,6,2,8,1,5,9};
-    int l = 11;
-    mergesort(arr,0,10);
-    for (int i=0; i<l; i++){
-        cout << arr[i] << " ";
+    cout << "Enter the number of elements: ";
+
+    cin >> n;
+
+    int a[n];
+
+    cout << "Enter the elements: ";
+
+    for (int i = 0; i < n; i++)
+    {
+
+        cin >> a[i];
     }
+
+    mergeSort(a, 0, n - 1);
+    cout << "Elements after sorting: ";
+
+    for (int i = 0; i < n; i++)
+        cout << a[i] << " ";
 }

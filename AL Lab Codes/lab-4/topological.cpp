@@ -1,67 +1,50 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-class Graph {
-	int V;
-	list<int>* adj;
-	void topologicalSortUtil(int v, bool visited[],
-							stack<int>& Stack);
-
-public:
-	Graph(int V);
-	void addEdge(int v, int w);
-	void topologicalSort();
-};
-
-Graph::Graph(int V)
-{
-	this->V = V;
-	adj = new list<int>[V];
-}
-
-void Graph::addEdge(int v, int w)
-{
-	adj[v].push_back(w);
-}
-void Graph::topologicalSortUtil(int v, bool visited[],
-								stack<int>& Stack)
-{
-	visited[v] = true;
-	list<int>::iterator i;
-	for (i = adj[v].begin(); i != adj[v].end(); ++i)
-		if (!visited[*i])
-			topologicalSortUtil(*i, visited, Stack);
-	Stack.push(v);
-
-}
-void Graph::topologicalSort()
-{
-	stack<int> Stack;
-	bool* visited = new bool[V];
-	for (int i = 0; i < V; i++)
-		visited[i] = false;
-	for (int i = 0; i < V; i++)
-		if (visited[i] == false)
-			topologicalSortUtil(i, visited, Stack);
-	while (Stack.empty() == false) {
-		cout << Stack.top() << " ";
-		Stack.pop();
-	}
-	delete [] visited;
-}
 int main()
 {
-	Graph g(6);
-	g.addEdge(5, 2);
-	g.addEdge(5, 0);
-	g.addEdge(4, 0);
-	g.addEdge(4, 1);
-	g.addEdge(2, 3);
-	g.addEdge(3, 1);
+	int i, j, k, n, a[10][10] = {0}, indeg[10] = {0}, flag[10] = {0}, count = 0;
+	int m;
 
-	cout << "Following is a Topological Sort of the given "
-			"graph \n";
-	g.topologicalSort();
+	cout << "Enter the no of vertices: ";
+	cin >> n;
 
-	return 0;
+	cout << "Enter the no of edges: ";
+	cin >> m;
+
+	int p, q;
+	cout << "Enter the edges: " << endl;
+	for (int i = 0; i < m; i++)
+	{
+		cin >> p;
+		cin >> q;
+		a[p][q] = 1;
+	}
+
+	for (i = 1; i <= n; i++)
+		for (j = 1; j <= n; j++)
+		{
+			indeg[i] = indeg[i] + a[j][i];
+		}
+
+	cout << "\nThe topological order is: ";
+
+	while (count < n)
+	{
+		for (k = 1; k <= n; k++)
+		{
+			if ((indeg[k] == 0) && (flag[k] == 0))
+			{
+				cout << k << " ";
+				flag[k] = 1;
+			}
+
+			for (i = 1; i <= n; i++)
+			{
+				if (a[i][k] == 1)
+					indeg[k]--;
+			}
+		}
+		count++;
+	}
 }
