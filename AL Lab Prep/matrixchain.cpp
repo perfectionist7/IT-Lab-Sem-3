@@ -29,48 +29,25 @@ int main()
             }
         }
     }
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < n - 2; i++)
     {
-        for (int j = 0; j < n - 1; j++)
+        for (int i = 0; i < n - 1; i++)
         {
-            if (j > i && j != i + 1)
+            for (int j = 0; j < n - 1; j++)
             {
-                if (i == 0 && j == n - 2)
+                if (j > i && j != i + 1)
                 {
-                    break;
-                }
-                int min = INT_MAX;
-                for (int k = i; k < j; k++)
-                {
-                    int temp = arr[i][k] + arr[k + 1][j] + r[i] * r[k + 1] * r[j + 1];
-                    cout << temp << endl;
-                    if (temp < min)
+                    int min = INT_MAX;
+                    for (int k = i; k < j; k++)
                     {
-                        min = temp;
-                        arr[i][j] = min;
-                        kay[i][j] = k + 1;
-                    }
-                }
-            }
-        }
-    }
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (int j = 0; j < n - 1; j++)
-        {
-            if (i == 0 && j == n - 2)
-            {
-
-                int min = INT_MAX;
-                for (int k = i; k < j; k++)
-                {
-                    int temp = arr[i][k] + arr[k + 1][j] + r[i] * r[k + 1] * r[j + 1];
-                    cout << temp << endl;
-                    if (temp < min)
-                    {
-                        min = temp;
-                        arr[i][j] = min;
-                        kay[i][j] = k + 1;
+                        int temp = arr[i][k] + arr[k + 1][j] + r[i] * r[k + 1] * r[j + 1];
+                        cout << temp << endl;
+                        if (temp < min)
+                        {
+                            min = temp;
+                            arr[i][j] = min;
+                            kay[i][j] = k + 1;
+                        }
                     }
                 }
             }
