@@ -1,0 +1,26 @@
+## Question 1
+
+SQL> select count (*) as numberofpeople
+  2  from accident natural join participated natural join owns
+  3  where extract (year from accd_date) = 2018;
+
+## Question 2
+
+SQL> select count (*) as accidentnumber
+  2  from accident natural join participated natural join car
+  3  where car.model = 'Scoda Rapid';
+
+## Question 3
+
+SQL> select person.name as owner_name, count(participated.report_number) as numberofaccidents, sum(participated.damage_amount) as totaldamage
+  2  from person natural join participated
+  3  group by person.name
+  4  order by totaldamage desc;
+
+## Question 4
+
+SQL> select p.name as owner_name
+  2  from accident a natural join participated pa natural join person p
+  3  where extract (year from accd_date) = 2018
+  4  having (count (report_number) >= 2)
+  5  group by name;
