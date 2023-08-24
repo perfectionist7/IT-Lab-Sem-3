@@ -1,0 +1,10 @@
+	AREA RESET,DATA,READONLY
+	EXPORT __Vectors
+__Vectors
+	DCD 0X40001000
+	DCD Reset_Handler
+	ALIGN
+	AREA CODE_SEG,CODE,READONLY
+   ENTRY
+	EXPORT Reset_Handler
+Reset_Handler
