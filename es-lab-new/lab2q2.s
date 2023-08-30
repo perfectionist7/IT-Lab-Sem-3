@@ -13,8 +13,8 @@ Reset_Handler
 	ldr r1,=n2
 	ldr r2,[r0]
 	ldr r3,[r1]
-	cmp r2,r3
-back beq exit
+back 	cmp r2,r3
+	beq exit
 	bcc greater
 	subs r2,r3
 	b back
