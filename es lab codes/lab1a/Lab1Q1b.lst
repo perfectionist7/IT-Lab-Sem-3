@@ -1,0 +1,162 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET,DATA,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 10010000        DCD              0X10010000
+    6 00000004 00000000        DCD              Reset_Handler
+    7 00000008         
+    8 00000008                 ALIGN
+    9 00000008                 AREA             CODE_SEG, CODE, READONLY
+   10 00000000                 ENTRY
+   11 00000000                 EXPORT           Reset_Handler
+   12 00000000         Reset_Handler
+   13 00000000 4805            LDR              R0,=SRC+(len-1)*4
+   14 00000002 4906            LDR              R1,=SRC+(len-1+shift)*4
+   15 00000004 F04F 030A       MOV              R3,#10
+   16 00000008         UP
+   17 00000008 F850 2904       LDR              R2,[R0],#-4
+   18 0000000C F841 2904       STR              R2,[R1],#-4
+   19 00000010 3B01            SUBS             R3,#1
+   20 00000012 D1F9            BNE              UP
+   21 00000014 E7FE    STOP    B                STOP
+   22 00000016 0000000A 
+                       len     equ              10
+   23 00000016 00000002 
+                       shift   equ              2
+   24 00000016 00 00 00000024 
+              0000002C         AREA             DATA_SEG,READWRITE
+   25 00000000 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 SRC     DCD              0,0,0,0,0,0,0,0,0,0,0,0
+   26 00000030                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=Lab1Q1b.
+d -oLab1Q1b.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Kei
+l_v5\ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=Lab1Q1b.lst Lab1Q1b
+.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file Lab1Q1b.asm
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file Lab1Q1b.asm
+   Uses
+      At line 2 in file Lab1Q1b.asm
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CODE_SEG 00000000
+
+Symbol: CODE_SEG
+   Definitions
+      At line 9 in file Lab1Q1b.asm
+   Uses
+      None
+Comment: CODE_SEG unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file Lab1Q1b.asm
+   Uses
+      At line 6 in file Lab1Q1b.asm
+      At line 11 in file Lab1Q1b.asm
+
+STOP 00000014
+
+Symbol: STOP
+   Definitions
+      At line 21 in file Lab1Q1b.asm
+   Uses
+      At line 21 in file Lab1Q1b.asm
+Comment: STOP used once
+UP 00000008
+
+Symbol: UP
+   Definitions
+      At line 16 in file Lab1Q1b.asm
+   Uses
+      At line 20 in file Lab1Q1b.asm
+Comment: UP used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATA_SEG 00000000
+
+Symbol: DATA_SEG
+   Definitions
+      At line 24 in file Lab1Q1b.asm
+   Uses
+      None
+Comment: DATA_SEG unused
+SRC 00000000
+
+Symbol: SRC
+   Definitions
+      At line 25 in file Lab1Q1b.asm
+   Uses
+      At line 13 in file Lab1Q1b.asm
+      At line 14 in file Lab1Q1b.asm
+
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+len 0000000A
+
+Symbol: len
+   Definitions
+      At line 22 in file Lab1Q1b.asm
+   Uses
+      At line 13 in file Lab1Q1b.asm
+      At line 14 in file Lab1Q1b.asm
+
+shift 00000002
+
+Symbol: shift
+   Definitions
+      At line 23 in file Lab1Q1b.asm
+   Uses
+      At line 14 in file Lab1Q1b.asm
+Comment: shift used once
+2 symbols
+343 symbols in table

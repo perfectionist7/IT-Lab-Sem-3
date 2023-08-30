@@ -1,0 +1,1 @@
+lcmnumbers.o: lcmnumbers.s

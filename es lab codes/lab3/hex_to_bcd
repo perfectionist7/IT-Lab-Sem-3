@@ -1,0 +1,4 @@
+; divide by a and store the remainder
+
+	 AREA RESET,DATA,READONLY
+	 

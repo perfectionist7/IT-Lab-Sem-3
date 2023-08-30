@@ -1,0 +1,151 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET,DATA,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0X10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             CODE_SEG,CODE,READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT           Reset_Handler
+   10 00000000         
+   11 00000000         Reset_Handler
+   12 00000000 480D            ldr              r0,=src
+   13 00000002 6801            ldr              r1,[r0]
+   14 00000004 460A            mov              r2,r1
+   15 00000006 F001 010F       and              r1,#0x0f
+   16 0000000A 290A            cmp              r1,#0xa
+   17 0000000C D301            blo              next
+   18 0000000E F101 0107       add              r1,#0x7
+   19 00000012 F101 0130 
+                       next    add              r1,#0x30
+   20 00000016 4B09            ldr              r3,=dst
+   21 00000018 F843 1B04       str              r1,[r3],#4
+   22 0000001C F002 02F0       and              r2,#0xf0
+   23 00000020 EA4F 1212       lsr              r2,#4
+   24 00000024 2A0A            cmp              r2,#0xa
+   25 00000026 D301            blo              next2
+   26 00000028 F102 0207       add              r2,#0x7
+   27 0000002C F102 0230 
+                       next2   add              r2,#0x30
+   28 00000030 601A            str              r2,[r3]
+   29 00000032 E7FE    stop    b                stop
+   30 00000034 000000A3 
+                       src     dcd              0xa3
+   31 00000038 00000000 
+              00000000         AREA             data,DATA,READWRITE
+   32 00000000 00000000 
+                       dst     dcd              0
+   33 00000004                 end
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=hexatoas
+cii.d -ohexatoascii.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\K
+eil\ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=hexatoascii.lst hexa
+toascii.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file hexatoascii.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file hexatoascii.s
+   Uses
+      At line 2 in file hexatoascii.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CODE_SEG 00000000
+
+Symbol: CODE_SEG
+   Definitions
+      At line 7 in file hexatoascii.s
+   Uses
+      None
+Comment: CODE_SEG unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 11 in file hexatoascii.s
+   Uses
+      At line 5 in file hexatoascii.s
+      At line 9 in file hexatoascii.s
+
+next 00000012
+
+Symbol: next
+   Definitions
+      At line 19 in file hexatoascii.s
+   Uses
+      At line 17 in file hexatoascii.s
+Comment: next used once
+next2 0000002C
+
+Symbol: next2
+   Definitions
+      At line 27 in file hexatoascii.s
+   Uses
+      At line 25 in file hexatoascii.s
+Comment: next2 used once
+src 00000034
+
+Symbol: src
+   Definitions
+      At line 30 in file hexatoascii.s
+   Uses
+      At line 12 in file hexatoascii.s
+Comment: src used once
+stop 00000032
+
+Symbol: stop
+   Definitions
+      At line 29 in file hexatoascii.s
+   Uses
+      At line 29 in file hexatoascii.s
+Comment: stop used once
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 31 in file hexatoascii.s
+   Uses
+      None
+Comment: data unused
+dst 00000000
+
+Symbol: dst
+   Definitions
+      At line 32 in file hexatoascii.s
+   Uses
+      At line 20 in file hexatoascii.s
+Comment: dst used once
+2 symbols
+343 symbols in table

@@ -1,0 +1,122 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET,DATA,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0X10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             CODE_SEG,CODE,READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT           Reset_Handler
+   10 00000000         
+   11 00000000         Reset_Handler
+   12 00000000 4805            ldr              r0,=num
+   13 00000002 6801            ldr              r1,[r0]
+   14 00000004 FB01 1201       mla              r2,r1,r1,r1
+   15 00000008 EA4F 0252       lsr              r2,#1
+   16 0000000C 4B03            ldr              r3,=ans
+   17 0000000E 601A            str              r2,[r3]
+   18 00000010 E7FE    stop    b                stop
+   19 00000012 00 00 00000007 
+                       num     dcd              0x7
+   20 00000018 00000000 
+              00000000         AREA             data,DATA,READWRITE
+   21 00000000 00000000 
+                       ans     dcd              0
+   22 00000004                 end
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=first_n_
+naturalnumbers.d -ofirst_n_naturalnumbers.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\AR
+M\CMSIS\Include -IC:\Keil\ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --lis
+t=first_n_naturalnumbers.lst first_n_naturalnumbers.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file first_n_naturalnumbers.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file first_n_naturalnumbers.s
+   Uses
+      At line 2 in file first_n_naturalnumbers.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CODE_SEG 00000000
+
+Symbol: CODE_SEG
+   Definitions
+      At line 7 in file first_n_naturalnumbers.s
+   Uses
+      None
+Comment: CODE_SEG unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 11 in file first_n_naturalnumbers.s
+   Uses
+      At line 5 in file first_n_naturalnumbers.s
+      At line 9 in file first_n_naturalnumbers.s
+
+num 00000014
+
+Symbol: num
+   Definitions
+      At line 19 in file first_n_naturalnumbers.s
+   Uses
+      At line 12 in file first_n_naturalnumbers.s
+Comment: num used once
+stop 00000010
+
+Symbol: stop
+   Definitions
+      At line 18 in file first_n_naturalnumbers.s
+   Uses
+      At line 18 in file first_n_naturalnumbers.s
+Comment: stop used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ans 00000000
+
+Symbol: ans
+   Definitions
+      At line 21 in file first_n_naturalnumbers.s
+   Uses
+      At line 16 in file first_n_naturalnumbers.s
+Comment: ans used once
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 20 in file first_n_naturalnumbers.s
+   Uses
+      None
+Comment: data unused
+2 symbols
+341 symbols in table

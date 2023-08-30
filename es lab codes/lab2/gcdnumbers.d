@@ -1,0 +1,1 @@
+gcdnumbers.o: gcdnumbers.s

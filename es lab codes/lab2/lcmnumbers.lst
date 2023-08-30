@@ -1,0 +1,192 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET,DATA,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0X10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             CODE_SEG,CODE,READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT           Reset_Handler
+   10 00000000         
+   11 00000000         Reset_Handler
+   12 00000000 480C            ldr              r0,=num
+   13 00000002 490D            ldr              r1,=num2
+   14 00000004 6802            ldr              r2,[r0]
+   15 00000006 680B            ldr              r3,[r1]
+   16 00000008 4614            mov              r4,r2
+   17 0000000A F000 F807 
+                       back    bl               div
+   18 0000000E 2D00            cmp              r5,#0
+   19 00000010 D001            beq              exit
+   20 00000012 4422            add              r2,r4
+   21 00000014 E7F9            b                back
+   22 00000016 4E09    exit    ldr              r6,=ans
+   23 00000018 6032            str              r2,[r6]
+   24 0000001A E7FE    stop    b                stop
+   25 0000001C 4615    div     mov              r5,r2
+   26 0000001E 429D    back1   cmp              r5,r3
+   27 00000020 D302            blo              exit2
+   28 00000022 EBA5 0503       sub              r5,r3
+   29 00000026 E7FA            b                back1
+   30 00000028 4770    exit2   bx               lr
+   31 0000002A 00 00 00000010 
+                       num     dcd              0x10
+   32 00000030 0000000C 
+                       num2    dcd              0x0c
+   33 00000034 00000000 
+              00000000 
+              00000000         AREA             data,DATA,READWRITE
+   34 00000000 00000000 
+                       ans     dcd              0
+                       
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=lcmnumbe
+rs.d -olcmnumbers.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Kei
+l\ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=lcmnumbers.lst lcmnumb
+ers.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file lcmnumbers.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file lcmnumbers.s
+   Uses
+      At line 2 in file lcmnumbers.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CODE_SEG 00000000
+
+Symbol: CODE_SEG
+   Definitions
+      At line 7 in file lcmnumbers.s
+   Uses
+      None
+Comment: CODE_SEG unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 11 in file lcmnumbers.s
+   Uses
+      At line 5 in file lcmnumbers.s
+      At line 9 in file lcmnumbers.s
+
+back 0000000A
+
+Symbol: back
+   Definitions
+      At line 17 in file lcmnumbers.s
+   Uses
+      At line 21 in file lcmnumbers.s
+Comment: back used once
+back1 0000001E
+
+Symbol: back1
+   Definitions
+      At line 26 in file lcmnumbers.s
+   Uses
+      At line 29 in file lcmnumbers.s
+Comment: back1 used once
+div 0000001C
+
+Symbol: div
+   Definitions
+      At line 25 in file lcmnumbers.s
+   Uses
+      At line 17 in file lcmnumbers.s
+Comment: div used once
+exit 00000016
+
+Symbol: exit
+   Definitions
+      At line 22 in file lcmnumbers.s
+   Uses
+      At line 19 in file lcmnumbers.s
+Comment: exit used once
+exit2 00000028
+
+Symbol: exit2
+   Definitions
+      At line 30 in file lcmnumbers.s
+   Uses
+      At line 27 in file lcmnumbers.s
+Comment: exit2 used once
+num 0000002C
+
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+Symbol: num
+   Definitions
+      At line 31 in file lcmnumbers.s
+   Uses
+      At line 12 in file lcmnumbers.s
+Comment: num used once
+num2 00000030
+
+Symbol: num2
+   Definitions
+      At line 32 in file lcmnumbers.s
+   Uses
+      At line 13 in file lcmnumbers.s
+Comment: num2 used once
+stop 0000001A
+
+Symbol: stop
+   Definitions
+      At line 24 in file lcmnumbers.s
+   Uses
+      At line 24 in file lcmnumbers.s
+Comment: stop used once
+10 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ans 00000000
+
+Symbol: ans
+   Definitions
+      At line 34 in file lcmnumbers.s
+   Uses
+      At line 22 in file lcmnumbers.s
+Comment: ans used once
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 33 in file lcmnumbers.s
+   Uses
+      None
+Comment: data unused
+2 symbols
+347 symbols in table

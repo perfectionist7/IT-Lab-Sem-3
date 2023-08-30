@@ -1,0 +1,1 @@
+first_n_naturalnumbers.o: first_n_naturalnumbers.s

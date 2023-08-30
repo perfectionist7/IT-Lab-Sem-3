@@ -1,0 +1,177 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; divide by a and store the remainder
+    2 00000000         
+    3 00000000                 AREA             RESET,DATA,READONLY
+    4 00000000                 EXPORT           __Vectors
+    5 00000000         __Vectors
+    6 00000000 10001000        DCD              0X10001000
+    7 00000004 00000000        DCD              Reset_Handler
+    8 00000008                 ALIGN
+    9 00000008                 AREA             CODE_SEG,CODE,READONLY
+   10 00000000                 ENTRY
+   11 00000000                 EXPORT           Reset_Handler
+   12 00000000         
+   13 00000000         Reset_Handler
+   14 00000000 480D            ldr              r0,=num
+   15 00000002 6801            ldr              r1,[r0]
+   16 00000004 F000 F805 
+                       back    bl               divide
+   17 00000008 2900            cmp              r1,#0
+   18 0000000A D1FB            bne              back
+   19 0000000C 4E0B            ldr              r6,=ans
+   20 0000000E 6035            str              r5,[r6]
+   21 00000010 E7FE    stop    b                stop
+   22 00000012 460A    divide  mov              r2,r1
+   23 00000014 F04F 0300       mov              r3,#0
+   24 00000018 2A0A    back1   cmp              r2,#0xa
+   25 0000001A D304            blo              exit
+   26 0000001C F1A2 020A       sub              r2,#0xa
+   27 00000020 F103 0301       add              r3,#1
+   28 00000024 E7F8            b                back1
+   29 00000026 FA02 F204 
+                       exit    lsl              r2,r4
+   30 0000002A 4415            add              r5,r2
+   31 0000002C F104 0404       add              r4,#4
+   32 00000030 4619            mov              r1,r3
+   33 00000032 4770            bx               lr
+   34 00000034 000000A7 
+                       num     dcd              0xa7
+   35 00000038 00000000 
+              00000000         AREA             data,DATA,READWRITE
+   36 00000000 00000000 
+                       ans     dcd              0
+   37 00000004                 end
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=hex_to_b
+cd.d -ohex_to_bcd.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Kei
+l\ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=hex_to_bcd.lst hex_to_
+bcd.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 3 in file hex_to_bcd.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 5 in file hex_to_bcd.s
+   Uses
+      At line 4 in file hex_to_bcd.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CODE_SEG 00000000
+
+Symbol: CODE_SEG
+   Definitions
+      At line 9 in file hex_to_bcd.s
+   Uses
+      None
+Comment: CODE_SEG unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 13 in file hex_to_bcd.s
+   Uses
+      At line 7 in file hex_to_bcd.s
+      At line 11 in file hex_to_bcd.s
+
+back 00000004
+
+Symbol: back
+   Definitions
+      At line 16 in file hex_to_bcd.s
+   Uses
+      At line 18 in file hex_to_bcd.s
+Comment: back used once
+back1 00000018
+
+Symbol: back1
+   Definitions
+      At line 24 in file hex_to_bcd.s
+   Uses
+      At line 28 in file hex_to_bcd.s
+Comment: back1 used once
+divide 00000012
+
+Symbol: divide
+   Definitions
+      At line 22 in file hex_to_bcd.s
+   Uses
+      At line 16 in file hex_to_bcd.s
+Comment: divide used once
+exit 00000026
+
+Symbol: exit
+   Definitions
+      At line 29 in file hex_to_bcd.s
+   Uses
+      At line 25 in file hex_to_bcd.s
+Comment: exit used once
+num 00000034
+
+Symbol: num
+   Definitions
+      At line 34 in file hex_to_bcd.s
+   Uses
+      At line 14 in file hex_to_bcd.s
+Comment: num used once
+stop 00000010
+
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+Symbol: stop
+   Definitions
+      At line 21 in file hex_to_bcd.s
+   Uses
+      At line 21 in file hex_to_bcd.s
+Comment: stop used once
+8 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ans 00000000
+
+Symbol: ans
+   Definitions
+      At line 36 in file hex_to_bcd.s
+   Uses
+      At line 19 in file hex_to_bcd.s
+Comment: ans used once
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 35 in file hex_to_bcd.s
+   Uses
+      None
+Comment: data unused
+2 symbols
+345 symbols in table
