@@ -1,0 +1,155 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET,DATA,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 10001000        DCD              0X10001000
+    6 00000004 00000000        DCD              Reset_Handler
+    7 00000008                 ALIGN
+    8 00000008                 AREA             CODE_SEG,CODE,READONLY
+    9 00000000                 ENTRY
+   10 00000000                 EXPORT           Reset_Handler
+   11 00000000         
+   12 00000000         Reset_Handler
+   13 00000000 480C            ldr              r0,=num
+   14 00000002 F04F 0305       mov              r3,#5
+   15 00000006 B408    back1   push             {r3}
+   16 00000008 4601            mov              r1,r0
+   17 0000000A 4602            mov              r2,r0
+   18 0000000C 680C    back    ldr              r4,[r1]
+   19 0000000E 6815            ldr              r5,[r2]
+   20 00000010 42AC            cmp              r4,r5
+   21 00000012 D200            bcs              down
+   22 00000014 460A            mov              r2,r1
+   23 00000016 F101 0104 
+                       down    add              r1,#4
+   24 0000001A 3B01            subs             r3,#1
+   25 0000001C D1F6            bne              back
+   26 0000001E 6816            ldr              r6,[r2]
+   27 00000020 6807            ldr              r7,[r0]
+   28 00000022 6017            str              r7,[r2]
+   29 00000024 6006            str              r6,[r0]
+   30 00000026 F100 0004       add              r0,#4
+   31 0000002A BC08            pop              {r3}
+   32 0000002C 3B01            subs             r3,#1
+   33 0000002E D1EA            bne              back1
+   34 00000030 E7FE    stop    b                stop
+   35 00000032 00 00 00000000  AREA             data,DATA,READWRITE
+   36 00000000 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 num     dcd              0,0,0,0,0
+   37 00000014                 end
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=selectio
+nsort.d -oselectionsort.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -I
+C:\Keil\ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=selectionsort.ls
+t selectionsort.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file selectionsort.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file selectionsort.s
+   Uses
+      At line 2 in file selectionsort.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CODE_SEG 00000000
+
+Symbol: CODE_SEG
+   Definitions
+      At line 8 in file selectionsort.s
+   Uses
+      None
+Comment: CODE_SEG unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file selectionsort.s
+   Uses
+      At line 6 in file selectionsort.s
+      At line 10 in file selectionsort.s
+
+back 0000000C
+
+Symbol: back
+   Definitions
+      At line 18 in file selectionsort.s
+   Uses
+      At line 25 in file selectionsort.s
+Comment: back used once
+back1 00000006
+
+Symbol: back1
+   Definitions
+      At line 15 in file selectionsort.s
+   Uses
+      At line 33 in file selectionsort.s
+Comment: back1 used once
+down 00000016
+
+Symbol: down
+   Definitions
+      At line 23 in file selectionsort.s
+   Uses
+      At line 21 in file selectionsort.s
+Comment: down used once
+stop 00000030
+
+Symbol: stop
+   Definitions
+      At line 34 in file selectionsort.s
+   Uses
+      At line 34 in file selectionsort.s
+Comment: stop used once
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 35 in file selectionsort.s
+   Uses
+      None
+Comment: data unused
+num 00000000
+
+Symbol: num
+   Definitions
+      At line 36 in file selectionsort.s
+   Uses
+      At line 13 in file selectionsort.s
+Comment: num used once
+2 symbols
+343 symbols in table

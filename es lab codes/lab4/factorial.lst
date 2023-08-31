@@ -1,0 +1,147 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET,DATA,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 10001000        DCD              0X10001000
+    6 00000004 00000000        DCD              Reset_Handler
+    7 00000008                 ALIGN
+    8 00000008                 AREA             CODE_SEG,CODE,READONLY
+    9 00000000                 ENTRY
+   10 00000000                 EXPORT           Reset_Handler
+   11 00000000         
+   12 00000000         Reset_Handler
+   13 00000000 480A            ldr              r0,=num
+   14 00000002 6801            ldr              r1,[r0]
+   15 00000004 F000 F803       bl               fact
+   16 00000008 4B09            ldr              r3,=ans
+   17 0000000A 6019            str              r1,[r3]
+   18 0000000C E7FE    stop    b                stop
+   19 0000000E 2901    fact    cmp              r1,#1
+   20 00000010 D008            beq              exit
+   21 00000012 B502            push             {r1,lr}
+   22 00000014 F1A1 0101       sub              r1,#1
+   23 00000018 F7FF FFF9       bl               fact
+   24 0000001C E8BD 4004       pop              {r2,lr}
+   25 00000020 FB01 F102       mul              r1,r2
+   26 00000024 4770    exit    bx               lr
+   27 00000026 00 00 00000007 
+                       num     dcd              0x7
+   28 0000002C 00000000 
+              00000000         AREA             data,DATA,READWRITE
+   29 00000000 00000000 
+                       ans     dcd              0
+   30 00000004                 end
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=factoria
+l.d -ofactorial.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\
+ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=factorial.lst factorial.
+s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file factorial.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file factorial.s
+   Uses
+      At line 2 in file factorial.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CODE_SEG 00000000
+
+Symbol: CODE_SEG
+   Definitions
+      At line 8 in file factorial.s
+   Uses
+      None
+Comment: CODE_SEG unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file factorial.s
+   Uses
+      At line 6 in file factorial.s
+      At line 10 in file factorial.s
+
+exit 00000024
+
+Symbol: exit
+   Definitions
+      At line 26 in file factorial.s
+   Uses
+      At line 20 in file factorial.s
+Comment: exit used once
+fact 0000000E
+
+Symbol: fact
+   Definitions
+      At line 19 in file factorial.s
+   Uses
+      At line 15 in file factorial.s
+      At line 23 in file factorial.s
+
+num 00000028
+
+Symbol: num
+   Definitions
+      At line 27 in file factorial.s
+   Uses
+      At line 13 in file factorial.s
+Comment: num used once
+stop 0000000C
+
+Symbol: stop
+   Definitions
+      At line 18 in file factorial.s
+   Uses
+      At line 18 in file factorial.s
+Comment: stop used once
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ans 00000000
+
+Symbol: ans
+   Definitions
+      At line 29 in file factorial.s
+   Uses
+      At line 16 in file factorial.s
+Comment: ans used once
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 28 in file factorial.s
+   Uses
+      None
+Comment: data unused
+2 symbols
+343 symbols in table
