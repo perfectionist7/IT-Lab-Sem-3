@@ -1,840 +1,147 @@
+##Question 1
 
-SQL*Plus: Release 19.0.0.0.0 - Production on Mon Aug 14 09:53:37 2023
-Version 19.3.0.0.0
-
-Copyright (c) 1982, 2019, Oracle.  All rights reserved.
-
-Enter user-name: ict082@ictorcl
-Enter password:
-ERROR:
-ORA-01017: invalid username/password; logon denied
-
-
-Enter user-name: it082@ictorcl
-Enter password:
-Last Successful login time: Mon Aug 14 2023 09:47:00 +05:30
-
-Connected to:
-Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-Version 19.3.0.0.0
-
-SQL> create table department(
-  2  deptname varchar (20),
-  3  building varchar (15),
-  4  budget numeric (12,2),
-  5  primary key (deptname));
+  create table person(
+  driver_id# varchar(30),
+  name varchar(50),
+  address varchar(100),
+  primary key (driver_id#));
 
 Table created.
 
-SQL> insert into department values('ict','ab5',4000);
-
-1 row created.
-
-SQL> select * from department
-  2  ;
-
-DEPTNAME             BUILDING            BUDGET
--------------------- --------------- ----------
-ict                  ab5                   4000
-
-SQL> create table person(
-  2  driver_id# varchar(20),
-  3  );
-)
-*
-ERROR at line 3:
-ORA-00904: : invalid identifier
-
-
-SQL> create table person(
-  2  driver_id# varchar (30),
-  3  name varchar(50),
-  4  address varchar(100),
-  5  primary key (driver_id#),
-  6  foreign key (driver_id#));
-foreign key (driver_id#))
-                        *
-ERROR at line 6:
-ORA-00905: missing keyword
-
-
-SQL> create table person(
-  2  driver_id# varchar(30),
-  3  name varchar(50),
-  4  address varchar(100),
-  5  primary key (driver_id#));
+  create table car(
+  regno varchar(20),
+  model varchar(30),
+  year int,
+  primary key(regno));
 
 Table created.
 
-SQL> select * from person
-  2  ;
-
-no rows selected
-
-SQL> insert into person
-  2  values('MH2102', 'Ayush', 'A-2005 Lodha Whitecity');
-
-1 row created.
-
-SQL> select * from person
-  2  ;
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-MH2102
-Ayush
-A-2005 Lodha Whitecity
-
-
-SQL> insert into person
-  2  values('MH4402', 'Rohan', 'A-905 Hubtown Sunmist');
-
-1 row created.
-
-SQL> select * from person
-  2  ;
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-MH2102
-Ayush
-A-2005 Lodha Whitecity
-
-MH4402
-Rohan
-A-905 Hubtown Sunmist
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-
-
-SQL> select * from person;
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-MH2102
-Ayush
-A-2005 Lodha Whitecity
-
-MH4402
-Rohan
-A-905 Hubtown Sunmist
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-
-
-SQL> select * from person
-  2  ;
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-MH2102
-Ayush
-A-2005 Lodha Whitecity
-
-MH4402
-Rohan
-A-905 Hubtown Sunmist
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-
-
-SQL> select * from department;
-
-DEPTNAME             BUILDING            BUDGET
--------------------- --------------- ----------
-ict                  ab5                   4000
-
-SQL> insert into person
-  2  values('DL4023','Ash','C-404 Pnb Apartments');
-
-1 row created.
-
-SQL> insert into person
-  2  valus ('KA5421', 'Robin', 'A6/23, Comfort Zone');
-valus ('KA5421', 'Robin', 'A6/23, Comfort Zone')
-       *
-ERROR at line 2:
-ORA-00928: missing SELECT keyword
-
-
-SQL> insert into person
-  2  values('KA5421','Robin','A6/23, Comfort Zone');
-
-1 row created.
-
-SQL> insert into person
-  2  values('UP2222','Toucan','444 Baker Street');
-
-1 row created.
-
-SQL> select * from person
-  2  ;
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-MH2102
-Ayush
-A-2005 Lodha Whitecity
-
-MH4402
-Rohan
-A-905 Hubtown Sunmist
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-
-DL4023
-Ash
-C-404 Pnb Apartments
-
-KA5421
-Robin
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-A6/23, Comfort Zone
-
-UP2222
-Toucan
-444 Baker Street
-
-
-SQL> select * from person
-  2  ;
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-MH2102
-Ayush
-A-2005 Lodha Whitecity
-
-MH4402
-Rohan
-A-905 Hubtown Sunmist
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-
-DL4023
-Ash
-C-404 Pnb Apartments
-
-KA5421
-Robin
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-A6/23, Comfort Zone
-
-UP2222
-Toucan
-444 Baker Street
-
-
-SQL> create table(
-  2  regno varchar(20),
-  3  model varchar(30),
-  4  year int);
-create table(
-            *
-ERROR at line 1:
-ORA-00903: invalid table name
-
-
-SQL> create table car(
-  2  regno varchar(20),
-  3  model varchar(30),
-  4  year int,
-  5  primary key (regno),
-  6  );
-)
-*
-ERROR at line 6:
-ORA-00904: : invalid identifier
-
-
-SQL> create table car(
-  2  regno varchar(20),
-  3  model varchar(30),
-  4  year int,
-  5  primary key(regno));
+  create table accident(
+  report_number int,
+  accd_date date,
+  location varchar(50),
+  primary key (report_number));
 
 Table created.
 
-SQL> insert into car
-  2  values ('MH5431','Tesla Model X',2017);
-
-1 row created.
-
-SQL> insert into car
-  2  values ('KA4312','Scoda Rapid',2019);
-
-1 row created.
-
-SQL> insert into car
-  2  values ('UP2312', 'Mercedes E class',2020);
-
-1 row created.
-
-SQL> insert into car
-  2  values ('DL2183', 'BMW X class',2022);
-
-1 row created.
-
-SQL> insert into car
-  2  values ('RJ2932', 'Fortuner', 2023);
-
-1 row created.
-
-SQL> select * from car
-  2  ;
-
-REGNO                MODEL                                YEAR
--------------------- ------------------------------ ----------
-MH5431               Tesla Model X                        2017
-KA4312               Scoda Rapid                          2019
-UP2312               Mercedes E class                     2020
-DL2183               BMW X class                          2022
-RJ2932               Fortuner                             2023
-
-SQL> create table accident(
-  2  report_number int,
-  3  accd_date date,
-  4  location varchar(50),
-  5  primary key (report_number),
-  6  foreign key (report_number));
-foreign key (report_number))
-                           *
-ERROR at line 6:
-ORA-00905: missing keyword
-
-
-SQL> create table accident(
-  2  report_number int,
-  3  accd_date date,
-  4  location varchar(50),
-  5  primary key (report_number));
+  create table owns(
+  driver_id# varchar(30),
+  regno varchar(30),
+  primary key (driver_id#),
+  foreign key (driver_id#) references person(driver_id#));
 
 Table created.
 
-SQL> insert into accident
-  2  values('24556', 2023-08-24, 'Andheri East, Mumbai');
-values('24556', 2023-08-24, 'Andheri East, Mumbai')
-                       *
-ERROR at line 2:
-ORA-00932: inconsistent datatypes: expected DATE got NUMBER
-
-
-SQL> insert into accident
-  2  values('24556', '2023-08-24', 'Andheri East, Mumbai');
-values('24556', '2023-08-24', 'Andheri East, Mumbai')
-                *
-ERROR at line 2:
-ORA-01861: literal does not match format string
-
-
-SQL> insert into accident
-  2  values('24556', DATE 2023-08-24', 'Andheri East, Mumbai');
-ERROR:
-ORA-01756: quoted string not properly terminated
-
-
-SQL> insert into accident
-  2  values('24556', DATE 2023-08-24, 'Andheri East, Mumbai');
-values('24556', DATE 2023-08-24, 'Andheri East, Mumbai')
-                *
-ERROR at line 2:
-ORA-00936: missing expression
-
-
-SQL> insert into accident
-  2  values(24556, '2023-08-24', 'Andheri East, Mumbai');
-values(24556, '2023-08-24', 'Andheri East, Mumbai')
-              *
-ERROR at line 2:
-ORA-01861: literal does not match format string
-
-
-SQL> insert into accident
-  2  values(23556, "2023-08-24", 'Andheri East, Mumbai');
-values(23556, "2023-08-24", 'Andheri East, Mumbai')
-              *
-ERROR at line 2:
-ORA-00984: column not allowed here
-
-
-SQL> insert into accident
-  2  values(23556,'24-FEB-17','Andheri East, Mumbai');
-
-1 row created.
-
-SQL> insert into accident
-  2  values(27685,'13-MAR-18','Kandivali East, Mumbai');
-
-1 row created.
-
-SQL> insert into accident
-  2  values(14532,'14-APR-19','Lonavala');
-
-1 row created.
-
-SQL> insert into accident
-  2  values(77123,'15-SEP-14','Lucknow');
-
-1 row created.
-
-SQL> insert into accident
-  2  values(82312,'08-OCT-16','New York');
-
-1 row created.
-
-SQL> select * from accident
-  2  ;
-
-REPORT_NUMBER ACCD_DATE LOCATION
-------------- --------- --------------------------------------------------
-        23556 24-FEB-17 Andheri East, Mumbai
-        27685 13-MAR-18 Kandivali East, Mumbai
-        14532 14-APR-19 Lonavala
-        77123 15-SEP-14 Lucknow
-        82312 08-OCT-16 New York
-
-SQL> create table owns(
-  2  driver_id# varchar(30),
-  3  regno varchar(30),
-  4  primary key (driver_id#),
-  5  foreign key (driver_id#) references person(driver_id#));
+  create table participated(
+  driver_id# varchar(30),
+  regno varchar(20),
+  report_number int,
+  damage_amount int,
+  primary key(driver_id#),
+  foreign key (driver_id#) references person(driver_id#),
+  foreign key (regno) references car(regno),
+  foreign key (report_number) references accident(report_number) on delete cascade);
 
 Table created.
 
-SQL> select * from person
-  2  ;
 
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-MH2102
-Ayush
-A-2005 Lodha Whitecity
+##Question 2
+
+insert into person
+values('MH2102', 'Ayush', 'A-2005 Lodha Whitecity');
+insert into person
+values('MH4402', 'Rohan', 'A-905 Hubtown Sunmist');
+insert into person
+values('DL4023','Ash','C-404 Pnb Apartments');
+insert into person
+values('KA5421','Robin','A6/23, Comfort Zone');
+insert into person
+values('UP2222','Toucan','444 Baker Street');
+
+
+insert into car
+values ('MH5431','Tesla Model X',2017);
+insert into car
+values ('KA4312','Scoda Rapid',2019);
+insert into car
+values ('UP2312', 'Mercedes E class',2020);
+insert into car
+values ('DL2183', 'BMW X class',2022);
+insert into car
+values ('RJ2932', 'Fortuner', 2023);
+
+
+
+insert into accident
+values(23556,'24-FEB-17','Andheri East, Mumbai');
+insert into accident
+values(27685,'13-MAR-18','Kandivali East, Mumbai');
+insert into accident
+values(14532,'14-APR-19','Lonavala');
+insert into accident
+values(77123,'15-SEP-14','Lucknow');
+insert into accident
+values(82312,'08-OCT-16','New York');
+
+
+
+insert into owns
+values ('MH2102', 'MH5431');
+insert into owns
+values ('MH4402', 'KA4312');
+insert into owns
+values ('DL4023', 'UP2312');
+insert into owns
+values ('KA5421', 'DL2183');
+insert into owns
+values ('UP2222', 'RJ2932');
 
-MH4402
-Rohan
-A-905 Hubtown Sunmist
 
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
 
-DL4023
-Ash
-C-404 Pnb Apartments
-
-KA5421
-Robin
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-A6/23, Comfort Zone
-
-UP2222
-Toucan
-444 Baker Street
-
-
-SQL> insert into owns
-  2  values ('MH2102', 'MH5431');
-
-1 row created.
-
-SQL> insert into owns
-  2  values ('MH4402', 'KA4312');\
-  3  ;
-values ('MH4402', 'KA4312');\
-                           *
-ERROR at line 2:
-ORA-00933: SQL command not properly ended
-
-
-SQL> insert into owns
-  2  values ('MH4402', 'KA4312');
-
-1 row created.
-
-SQL> insert into owns
-  2  values ('DL4023', 'UP2312');
-
-1 row created.
-
-SQL> insert into owns
-  2  values ('KA5421', 'DL2183');
-
-1 row created.
-
-SQL> insert into owns
-  2  values ('UP2222', 'RJ2932');
-
-1 row created.
-
-SQL> select * from owns
-  2  ;
-
-DRIVER_ID#                     REGNO
------------------------------- ------------------------------
-MH2102                         MH5431
-MH4402                         KA4312
-DL4023                         UP2312
-KA5421                         DL2183
-UP2222                         RJ2932
-
-SQL> create table participated(
-  2  driver_id# varchar(30),
-  3  regno varchar(20),
-  4  report_number int,
-  5  damage_amount int,
-  6  primary key(driver_id#),
-  7  foreign key (driver_id#) references person(driver_id#),
-  8  foreign key (regno) references car(regno),
-  9  foreign key (report_number) references accident(report_number));
-
-Table created.
-
-SQL> insert into participated
-  2  values ('MH2102','MH5431',23556,24000);
-
-1 row created.
-
-SQL> insert into participated
-  2  values ('MH4402','KA4312',27685,46000);
-
-1 row created.
-
-SQL> insert into participated
-  2  values ('DL4023','UP2312',14532,54000);
-
-1 row created.
-
-SQL> insert into participated
-  2  values ('KA5421','DL2183',77123,72000);
-
-1 row created.
-
-SQL> insert into participated
-  2  values ('UP2222', 'RJ2932',82312, 81000);
-
-1 row created.
-
-SQL> select * from participated
-  2  ;
-
-DRIVER_ID#                     REGNO                REPORT_NUMBER DAMAGE_AMOUNT
------------------------------- -------------------- ------------- -------------
-MH2102                         MH5431                       23556         24000
-MH4402                         KA4312                       27685         46000
-DL4023                         UP2312                       14532         54000
-KA5421                         DL2183                       77123         72000
-UP2222                         RJ2932                       82312         81000
-
-SQL> update participated
-  2  set damage_amount = 25000
-  3  where regno='KA4312' AND report_number=27685;
-
-1 row updated.
-
-SQL> select * from participated
-  2  ;
-
-DRIVER_ID#                     REGNO                REPORT_NUMBER DAMAGE_AMOUNT
------------------------------- -------------------- ------------- -------------
-MH2102                         MH5431                       23556         24000
-MH4402                         KA4312                       27685         25000
-DL4023                         UP2312                       14532         54000
-KA5421                         DL2183                       77123         72000
-UP2222                         RJ2932                       82312         81000
-
-SQL> delete from accident
-  2  where year from accd_date=19
-  3  ;
-where year from accd_date=19
-           *
-ERROR at line 2:
-ORA-00920: invalid relational operator
-
-
-SQL> delete from accident
-  2  where extract(year from accd_date)=19;
-
-0 rows deleted.
-
-SQL> select * from accident
-  2  ;
-
-REPORT_NUMBER ACCD_DATE LOCATION
-------------- --------- --------------------------------------------------
-        23556 24-FEB-17 Andheri East, Mumbai
-        27685 13-MAR-18 Kandivali East, Mumbai
-        14532 14-APR-19 Lonavala
-        77123 15-SEP-14 Lucknow
-        82312 08-OCT-16 New York
-
-SQL> select * from accident
-  2  where extract(year from accd_date)=2019;
-
-REPORT_NUMBER ACCD_DATE LOCATION
-------------- --------- --------------------------------------------------
-        14532 14-APR-19 Lonavala
-
-SQL> delete from accident
-  2  where extract(year from accd_date)=2019;
-delete from accident
-*
-ERROR at line 1:
-ORA-02292: integrity constraint (IT082.SYS_C0027693) violated - child record
-found
-
-
-SQL> alter table participated add new_damage int
-  2  ;
-
-Table altered.
-
-SQL> select * from participated
-  2  ;
-
-DRIVER_ID#                     REGNO                REPORT_NUMBER DAMAGE_AMOUNT
------------------------------- -------------------- ------------- -------------
-NEW_DAMAGE
-----------
-MH2102                         MH5431                       23556         24000
-
-
-MH4402                         KA4312                       27685         25000
-
-
-DL4023                         UP2312                       14532         54000
-
-
-
-DRIVER_ID#                     REGNO                REPORT_NUMBER DAMAGE_AMOUNT
------------------------------- -------------------- ------------- -------------
-NEW_DAMAGE
-----------
-KA5421                         DL2183                       77123         72000
-
-
-UP2222                         RJ2932                       82312         81000
-
-
-
-SQL> alter table participated drop column new_damage
-  2  ;
-
-Table altered.
-
-SQL> select * from participated
-  2  ;
-
-DRIVER_ID#                     REGNO                REPORT_NUMBER DAMAGE_AMOUNT
------------------------------- -------------------- ------------- -------------
-MH2102                         MH5431                       23556         24000
-MH4402                         KA4312                       27685         25000
-DL4023                         UP2312                       14532         54000
-KA5421                         DL2183                       77123         72000
-UP2222                         RJ2932                       82312         81000
-
-SQL> alter participated add constraint check_damage check (damage_amount > 20000);
-alter participated add constraint check_damage check (damage_amount > 20000)
-      *
-ERROR at line 1:
-ORA-00940: invalid ALTER command
-
-
-SQL> alter table participated
-  2  add constraint check_damage check (damage_amount > 20000);
-
-Table altered.
-
-SQL> insert into participated
-  2  values('RJ2312', 'UP5555', 72312, 15000);
 insert into participated
-*
-ERROR at line 1:
-ORA-02290: check constraint (IT082.CHECK_DAMAGE) violated
+values ('MH2102','MH5431',23556,24000);
+insert into participated
+values ('MH4402','KA4312',27685,46000);
+insert into participated
+values ('DL4023','UP2312',14532,54000);
+insert into participated
+values ('KA5421','DL2183',77123,72000);
+insert into participated
+values ('UP2222', 'RJ2932',82312, 81000);
 
 
-SQL> select * from person
-  2  ;
+##Question 3
 
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-MH2102
-Ayush
-A-2005 Lodha Whitecity
-
-MH4402
-Rohan
-A-905 Hubtown Sunmist
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-
-DL4023
-Ash
-C-404 Pnb Apartments
-
-KA5421
-Robin
-
-DRIVER_ID#
-------------------------------
-NAME
---------------------------------------------------
-ADDRESS
---------------------------------------------------------------------------------
-A6/23, Comfort Zone
-
-UP2222
-Toucan
-444 Baker Street
+update participated
+set damage_amount = 25000
+where regno='KA4312' AND report_number=27685;
 
 
-SQL> select * from car;
+##Question 4
 
-REGNO                MODEL                                YEAR
--------------------- ------------------------------ ----------
-MH5431               Tesla Model X                        2017
-KA4312               Scoda Rapid                          2019
-UP2312               Mercedes E class                     2020
-DL2183               BMW X class                          2022
-RJ2932               Fortuner                             2023
-
-SQL> select * from accident
-  2  ;
-
-REPORT_NUMBER ACCD_DATE LOCATION
-------------- --------- --------------------------------------------------
-        23556 24-FEB-17 Andheri East, Mumbai
-        27685 13-MAR-18 Kandivali East, Mumbai
-        14532 14-APR-19 Lonavala
-        77123 15-SEP-14 Lucknow
-        82312 08-OCT-16 New York
-
-SQL> alter table carinsert into participated
-  2    2  values('RJ2312', 'UP5555', 72312, 15000);
-alter table carinsert into participated
-                      *
-ERROR at line 1:
-ORA-01735: invalid ALTER TABLE option
+delete from accident
+where extract(year from accd_date) = 2019;
 
 
-SQL> insert into participated
-  2  *
-  3  ERROR at line 1:
-  4  ORA-02290: check constraint (IT082.CHECK_DAMAGE) violated
-  5
-SQL> alter table participated
-  2  add primary key (regno)
-  3  ;
-add primary key (regno)
-    *
-ERROR at line 2:
-ORA-02260: table can have only one primary key
+##Question 5
+
+alter table participated add new_damage int;
+
+alter table participated drop column new_damage;
 
 
-SQL> alter table participated
-  2  delete primary key (driver_id#)
-  3  ;
-delete primary key (driver_id#)
-*
-ERROR at line 2:
-ORA-01735: invalid ALTER TABLE option
+##Question 6
+
+alter table participated
+add constraint check_damage check (damage_amount > 20000);
 
 
-SQL> alter table participated
-  2  drop primary keyt=
-  3
-SQL>
-SQL> alter table participated
-  2  drop primary key
-  3  ;
+###Changing the primary keys
+
+alter table participated
+drop primary key;
+
+alter table participated
+add primary key(driver_id#, regno, report_number);
 
 Table altered.
-
-SQL> alter table participated
-  2  add primary key(driver_id#, regno, report_number);
-
-Table altered.
-
-SQL>
