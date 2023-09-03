@@ -145,3 +145,13 @@ alter table participated
 add primary key(driver_id#, regno, report_number);
 
 Table altered.
+<<<<<<< HEAD
+=======
+
+SQL> alter table participated
+  2  add primary key(driver_id#, regno, report_number);
+
+Table altered.
+
+SQL>
+>>>>>>> 8069d055125454164e33663d9a99cb6d4ddf0921
