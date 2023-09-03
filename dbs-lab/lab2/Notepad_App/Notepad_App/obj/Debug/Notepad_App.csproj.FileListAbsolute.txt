@@ -1,0 +1,10 @@
+D:\210911140\Lab2\Notepad_App\Notepad_App\bin\Debug\Notepad_App.exe.config
+D:\210911140\Lab2\Notepad_App\Notepad_App\bin\Debug\Notepad_App.exe
+D:\210911140\Lab2\Notepad_App\Notepad_App\bin\Debug\Notepad_App.pdb
+D:\210911140\Lab2\Notepad_App\Notepad_App\obj\Debug\Notepad_App.csprojResolveAssemblyReference.cache
+D:\210911140\Lab2\Notepad_App\Notepad_App\obj\Debug\Notepad_App.Properties.Resources.resources
+D:\210911140\Lab2\Notepad_App\Notepad_App\obj\Debug\Notepad_App.csproj.GenerateResource.Cache
+D:\210911140\Lab2\Notepad_App\Notepad_App\obj\Debug\Notepad_App.exe
+D:\210911140\Lab2\Notepad_App\Notepad_App\obj\Debug\Notepad_App.pdb
+D:\210911140\Lab2\Notepad_App\Notepad_App\obj\Debug\Notepad_App.Form2.resources
+D:\210911140\Lab2\Notepad_App\Notepad_App\obj\Debug\Notepad_App.Notepad.resources
