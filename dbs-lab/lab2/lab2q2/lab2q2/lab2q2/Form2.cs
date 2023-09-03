@@ -12,8 +12,8 @@ namespace lab2q2
 {
     public partial class Form2 : Form
     {
-        string user1 = "Kushagra";
-        string user2 = "Nischay";
+        string user1 = "Ayush";
+        string user2 = "Kushagra";
         int bal1 = 50000000;
         int bal2 = 200000;
         public Form2(string usr)
@@ -35,6 +35,16 @@ namespace lab2q2
         {
             Form3 f3 = new Form3(textBox1.Text);
             f3.Show();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

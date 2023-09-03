@@ -1,0 +1,26 @@
+1)
+select name, accd_date
+from person, accident, participated
+where person.driver_id = participated.driver_id and accident.report_number = participated.report_number and accd_date = (select accd_date from accident where extract(year from accd_date) = 2008);
+
+2)
+select count(participated.report_number)
+from car, participated
+where car.regno = participated.regno and car.model = 'gallardo';
+
+3)
+select name as owner_name, count(report_number) as no_of_accident, sum(damage_amount) as total_damage 
+from participated, person 
+where person.driver_id = participated.driver_id 
+group by person.name
+order by sum(damage_amount) desc;
+
+4)
+select name 
+from person
+where driver_id in (select driver_id from participated  group by driver_id having count(driver_id)>2);
+
+5)
+select name 
+from person
+where driver_id not in (select driver_id from participated  group by driver_id having count(driver_id) > 0);

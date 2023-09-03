@@ -12,8 +12,8 @@ namespace lab2q2
 {
     public partial class Form1 : Form
     {
-        string user1 = "Kushagra";
-        string user2 = "Nischay";
+        string user1 = "Ayush";
+        string user2 = "Kushagra";
         string psd1 = "1234";
         string psd2 = "4567";
         TextBox usernameentered;
@@ -36,6 +36,11 @@ namespace lab2q2
             else {
                 label4.Text = "invalid credentials";
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

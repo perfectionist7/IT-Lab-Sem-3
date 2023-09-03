@@ -12,10 +12,10 @@ namespace lab2q2
 {
     public partial class Form3 : Form
     {
-        string user1 = "Kushagra";
-        string user2 = "Nischay";
+        string user1 = "Ayush";
+        string user2 = "Kushagra";
         string user;
-        int bal1 = 50000000;
+        int bal1 = 5000000;
         int bal2 = 200000;
         int amount;
         public Form3(string usr)
@@ -42,6 +42,16 @@ namespace lab2q2
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

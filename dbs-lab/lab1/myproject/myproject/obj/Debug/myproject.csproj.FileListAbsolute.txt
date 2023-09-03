@@ -7,3 +7,14 @@ D:\210911226\myproject\myproject\obj\Debug\myproject.Properties.Resources.resour
 D:\210911226\myproject\myproject\obj\Debug\myproject.csproj.GenerateResource.Cache
 D:\210911226\myproject\myproject\obj\Debug\myproject.exe
 D:\210911226\myproject\myproject\obj\Debug\myproject.pdb
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab1\myproject\myproject\bin\Debug\myproject.exe.config
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab1\myproject\myproject\bin\Debug\myproject.exe
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab1\myproject\myproject\bin\Debug\myproject.pdb
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab1\myproject\myproject\obj\Debug\myproject.csproj.AssemblyReference.cache
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab1\myproject\myproject\obj\Debug\myproject.csproj.SuggestedBindingRedirects.cache
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab1\myproject\myproject\obj\Debug\myproject.Form1.resources
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab1\myproject\myproject\obj\Debug\myproject.Properties.Resources.resources
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab1\myproject\myproject\obj\Debug\myproject.csproj.GenerateResource.cache
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab1\myproject\myproject\obj\Debug\myproject.csproj.CoreCompileInputs.cache
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab1\myproject\myproject\obj\Debug\myproject.exe
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab1\myproject\myproject\obj\Debug\myproject.pdb

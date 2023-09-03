@@ -1,0 +1,9 @@
+D:\210911226\myproject\myproject\bin\Debug\myproject.exe.config
+D:\210911226\myproject\myproject\bin\Debug\myproject.exe
+D:\210911226\myproject\myproject\bin\Debug\myproject.pdb
+D:\210911226\myproject\myproject\obj\Debug\myproject.csprojResolveAssemblyReference.cache
+D:\210911226\myproject\myproject\obj\Debug\myproject.Form1.resources
+D:\210911226\myproject\myproject\obj\Debug\myproject.Properties.Resources.resources
+D:\210911226\myproject\myproject\obj\Debug\myproject.csproj.GenerateResource.Cache
+D:\210911226\myproject\myproject\obj\Debug\myproject.exe
+D:\210911226\myproject\myproject\obj\Debug\myproject.pdb

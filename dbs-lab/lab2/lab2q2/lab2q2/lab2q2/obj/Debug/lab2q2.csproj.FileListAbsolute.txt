@@ -9,3 +9,16 @@ D:\210911226\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.exe
 D:\210911226\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.pdb
 D:\210911226\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.Form2.resources
 D:\210911226\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.Form3.resources
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q2\lab2q2\lab2q2\bin\Debug\lab2q2.exe.config
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q2\lab2q2\lab2q2\bin\Debug\lab2q2.exe
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q2\lab2q2\lab2q2\bin\Debug\lab2q2.pdb
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.csproj.AssemblyReference.cache
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.csproj.SuggestedBindingRedirects.cache
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.Form1.resources
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.Form2.resources
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.Form3.resources
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.Properties.Resources.resources
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.csproj.GenerateResource.cache
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.csproj.CoreCompileInputs.cache
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.exe
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q2\lab2q2\lab2q2\obj\Debug\lab2q2.pdb

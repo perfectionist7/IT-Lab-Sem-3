@@ -7,3 +7,14 @@ D:\210911226\lab2q1\lab2q1\obj\Debug\lab2q1.Properties.Resources.resources
 D:\210911226\lab2q1\lab2q1\obj\Debug\lab2q1.csproj.GenerateResource.Cache
 D:\210911226\lab2q1\lab2q1\obj\Debug\lab2q1.exe
 D:\210911226\lab2q1\lab2q1\obj\Debug\lab2q1.pdb
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q1\lab2q1\bin\Debug\lab2q1.exe.config
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q1\lab2q1\bin\Debug\lab2q1.exe
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q1\lab2q1\bin\Debug\lab2q1.pdb
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q1\lab2q1\obj\Debug\lab2q1.csproj.AssemblyReference.cache
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q1\lab2q1\obj\Debug\lab2q1.csproj.SuggestedBindingRedirects.cache
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q1\lab2q1\obj\Debug\lab2q1.Form1.resources
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q1\lab2q1\obj\Debug\lab2q1.Properties.Resources.resources
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q1\lab2q1\obj\Debug\lab2q1.csproj.GenerateResource.cache
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q1\lab2q1\obj\Debug\lab2q1.csproj.CoreCompileInputs.cache
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q1\lab2q1\obj\Debug\lab2q1.exe
+C:\Users\akhan\OneDrive\Documents\IT-Labs-2nd-Year\dbs-lab\lab2\lab2q1\lab2q1\obj\Debug\lab2q1.pdb

@@ -1,0 +1,114 @@
+1.1)
+create table student(
+regno varchar(20),
+name varchar(50),
+major varchar(20),
+bdate date,
+primary key(regno));
+
+create table course(
+courseno int,
+cname varchar(30),
+dept varchar(30),
+primary key(courseno));
+
+create table enroll(
+regno varchar(20),
+courseno int,
+foreign key(regno) references student(regno),
+foreign key(courseno) references course(courseno));
+
+create table text(
+book_isbn int,
+booktitle varchar(50),
+publisher varchar(50),
+author varchar(50),
+primary key(book_isbn));
+
+create table book_adoption(
+courseno int,
+sem int,
+book_isbn int,
+primary key(book_isbn),
+foreign key(courseno) references course(courseno),
+foreign key(book_isbn) references text(book_isbn));
+
+1.2a)
+insert into student
+values(221, 'Lionel Messi', 'it', '10-JAN-2001');
+
+insert into student
+values(222, 'Luis Suarez', 'cse', '05-AUG-2003');
+
+insert into student
+values(223, 'Neymar jr', 'cce', '03-OCT-2002');
+
+insert into student
+values(224, 'Christiano Ronaldo', 'mech', '25-FEB-2001');
+
+insert into student
+values(225, 'Sunil Chhetri', 'ece', '17-NOV-2002');
+
+1.2b)
+insert into course
+values(3219, 'data structures', 'ict');
+
+insert into course
+values(3220, 'algorithms', 'ict');
+
+insert into course
+values(3221, 'software engineering', 'cse');
+
+insert into course
+values(3222, 'maths', 'mat');
+
+insert into course
+values(3223, 'electronics', 'ece');
+
+1.2c)
+insert into enroll
+values(221, 3219);
+
+insert into enroll
+values(222, 3220);
+
+insert into enroll
+values(223, 3221);
+
+insert into enroll
+values(224, 3222);
+
+insert into enroll
+values(225, 3223);
+
+1.2d)
+insert into text
+values(1111, 'recursion', 'puffin', 'blake crouch');
+
+insert into text
+values(2222, 'dark matter', 'puffin', 'blake crouch');
+
+insert into text
+values(3333, 'essentials of c', 'clang', 'dennis ritchie');
+
+insert into text
+values(4444, 'starting python', 'pip', 'guido van rossum');
+
+insert into text
+values(5555, 'abstract maths', 'bond and keane', 'robert bond');
+
+1.2e)
+insert into book_adoption
+values(3219, 5, 1111);
+
+insert into book_adoption
+values(3220, 3, 2222);
+
+insert into book_adoption
+values(3221, 5, 3333);
+
+insert into book_adoption
+values(3222, 5, 4444);
+
+insert into book_adoption
+values(3223, 3, 5555);
