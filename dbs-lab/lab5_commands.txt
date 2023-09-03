@@ -1,110 +1,83 @@
 ## Question 1
 
 
-SQL> create table student(
-  2  regno varchar (20),
-  3  name varchar (50),
-  4  major varchar (20),
-  5  bdate date,
-  6  primary key (regno));
+create table student(
+regno varchar (20),
+name varchar (50),
+major varchar (20),
+bdate date,
+primary key (regno));
 
-SQL> create table course(
-  2  course# int,
-  3  cname varchar (30),
-  4  dept varchar (30),
-  5  primary key (course#));
+create table course(
+course# int,
+cname varchar (30),
+dept varchar (30),
+primary key (course#));
 
-SQL> create table text(
-  2  book_isbn int,
-  3  booktitle varchar(50),
-  4  publisher varchar(50),
-  5  author varchar(50),
-  6  primary key (book_isbn));
+create table text(
+book_isbn int,
+booktitle varchar(50),
+publisher varchar(50),
+author varchar(50),
+primary key (book_isbn));
 
-SQL> create table enroll(
-  2  regno varchar (20),
-  3  course# int,
-  4  sem int,
-  5  book_isbn int,
-  6  primary key (regno,course#),
-  7  foreign key (course#) references course(course#) on delete cascade,
-  8  foreign key (regno) references student(regno) on delete cascade,
-  9  foreign key (book_isbn) references text(book_isbn) on delete cascade);
+create table enroll(
+regno varchar (20),
+course# int,
+sem int,
+book_isbn int,
+primary key (regno,course#),
+foreign key (course#) references course(course#) on delete cascade,
+foreign key (regno) references student(regno) on delete cascade,
+foreign key (book_isbn) references text(book_isbn) on delete cascade);
 
-SQL> create table book_adoption(
-  2  course# int,
-  3  sem int,
-  4  book_isbn int,
-  5  primary key (course#, book_isbn),
-  6  foreign key (course#) references course(course#) on delete cascade,
-  7  foreign key (book_isbn) references text(book_isbn) on delete cascade);
+create table book_adoption(
+course# int,
+sem int,
+book_isbn int,
+primary key (course#, book_isbn),
+foreign key (course#) references course(course#) on delete cascade,
+foreign key (book_isbn) references text(book_isbn) on delete cascade);
 
 
 ## Question 2
 
 
-SQL> insert into student values ('a2120','Ayush','IT','14-APR-03');
-1 row created.
-SQL> insert into student values ('b1440','Piyush','CSE','13-JUNE-01');
-1 row created.
-SQL> insert into student values ('c4569','Zayn','CCE','15-AUG-04');
-1 row created.
-SQL> insert into student values ('a7221','Anish','DSE','15-AUG-04');
-1 row created.
-SQL> insert into student values ('f3611','Gautham','ECE','16-SEP-02');
+insert into student values ('a2120','Ayush','IT','14-APR-03');
+insert into student values ('b1440','Piyush','CSE','13-JUNE-01');
+insert into student values ('c4569','Zayn','CCE','15-AUG-04');
+insert into student values ('a7221','Anish','DSE','15-AUG-04');
+insert into student values ('f3611','Gautham','ECE','16-SEP-02');
 
-SQL> insert into course values ('1051','Database Systems','ICT');
-1 row created.
-SQL> insert into course values ('1052','Embedded Systems','ECE');
-1 row created.
-SQL> insert into course values ('1040','Digital Systems','EEE');
-1 row created.
-SQL> insert into course values ('1042','Aerospace Engineering','AERO');
-1 row created.
-SQL> insert into course values ('1060','Cyber Security','CSE');
-1 row created.
+insert into course values ('1051','Database Systems','ICT');
+insert into course values ('1052','Embedded Systems','ECE');
+insert into course values ('1040','Digital Systems','EEE');
+insert into course values ('1042','Aerospace Engineering','AERO');
+insert into course values ('1060','Cyber Security','CSE');
 
-SQL> insert into text values (23,'Percy Jackson','Miramax Books','Rick Riordan');
-1 row created.
-SQL> insert into text values (52,'Harry Potter','Bloomsbury Publishing','JK Rowling');
-1 row created.
-SQL> insert into text values (24,'Heroes Of Olympus','Miramax Books','Rick Riordan');
-1 row created.
-SQL> insert into text values (64,'Do something with your life','Ayush Books','Ayush Khandelwal');
-1 row created.
-SQL> insert into text values (74,'The Hunger Games','Scholastic','Suzanne Collins');
-1 row created.
+insert into text values (23,'Percy Jackson','Miramax Books','Rick Riordan');
+insert into text values (52,'Harry Potter','Bloomsbury Publishing','JK Rowling');
+insert into text values (24,'Heroes Of Olympus','Miramax Books','Rick Riordan');
+insert into text values (64,'Do something with your life','Ayush Books','Ayush Khandelwal');
+insert into text values (74,'The Hunger Games','Scholastic','Suzanne Collins');
 
-SQL> insert into enroll values('a2120', 1052, 5, 64);
-1 row created.
-SQL> insert into enroll values('a2120', 1040, 5, 24);
-1 row created.
-SQL> insert into enroll values('c4569', 1052, 4, 64);
-1 row created.
-SQL> insert into enroll values('f3611', 1042, 3, 23);
-1 row created.
-SQL> insert into enroll values('b1440', 1060, 1, 74);
-1 row created.
-SQL> insert into enroll values ('c4569',1051,4,74);
-1 row created.
-SQL> insert into enroll values ('b1440',1051,4,23);
-1 row created.
+insert into enroll values('a2120', 1052, 5, 64);
+insert into enroll values('a2120', 1040, 5, 24);
+insert into enroll values('c4569', 1052, 4, 64);
+insert into enroll values('f3611', 1042, 3, 23);
+insert into enroll values('b1440', 1060, 1, 74);
+insert into enroll values ('c4569',1051,4,74);
+insert into enroll values ('b1440',1051,4,23);
 
-SQL> insert into book_adoption values (1051,4,74);
-1 row created.
-SQL> insert into book_adoption values (1042,3,23);
-1 row created.
-SQL> insert into book_adoption values (1060,1,74);
-1 row created.
-SQL> insert into book_adoption values (1040,5,24);
-1 row created.
-SQL> insert into book_adoption values (1052,4,64);
-1 row created.
-SQL> insert into book_adoption values (1051,4,23);
+insert into book_adoption values (1051,4,74);
+insert into book_adoption values (1042,3,23);
+insert into book_adoption values (1060,1,74);
+insert into book_adoption values (1040,5,24);
+insert into book_adoption values (1052,4,64);
+insert into book_adoption values (1051,4,23);
 
 
 TABLES AND VALUES
-
 
 
 STUDENT
@@ -173,95 +146,95 @@ TEXT
 
 ##Question 3a
 
-SQL> select cname from course
-  2  where course# in ( select course# from book_adoption
-  3  group by course#
-  4  having count(course#) > 1);
+select cname from course
+where course# in ( select course# from book_adoption
+group by course#
+having count(course#) > 1);
 
 ##Question 3b
 
-SQL> SELECT DISTINCT C.DEPT
-  2  FROM COURSE C
-  3  WHERE NOT EXISTS (
-  4      SELECT *
-  5      FROM BOOK_ADOPTION BA
-  6      WHERE BA.COURSE# = C.COURSE#
-  7      AND BA.BOOK_ISBN NOT IN (
-  8          SELECT T.BOOK_ISBN
-  9          FROM TEXT T
- 10          WHERE T.PUBLISHER = 'Miramax Books'
- 11      )
- 12  );
+SELECT DISTINCT C.DEPT
+FROM COURSE C
+WHERE NOT EXISTS (
+	SELECT *
+	FROM BOOK_ADOPTION BA
+	WHERE BA.COURSE# = C.COURSE#
+	AND BA.BOOK_ISBN NOT IN (
+		SELECT T.BOOK_ISBN
+		FROM TEXT T
+		WHERE T.PUBLISHER = 'Miramax Books'
+	)
+);
 
 ##Question 3c
 
-SQL> select name, count(distinct dept) as number_of_departments
-  2  from student natural join course natural join enroll
-  3  where regno in (
-  4  select regno from enroll
-  5  group by regno having count (dept) >= 2)
-  6  group by name;
+select name, count(distinct dept) as number_of_departments
+from student natural join course natural join enroll
+where regno in (
+select regno from enroll
+group by regno having count (dept) >= 2)
+group by name;
 
 ##Question 3d
 
-SQL> select regno
-  2  from student
-  3  MINUS
-  4  select regno
-  5  from enroll;
+select regno
+from student
+MINUS
+select regno
+from enroll;
 
 ##Question 3e
 
-SQL> SELECT C.DEPT
-  2  FROM COURSE C
-  3  WHERE NOT EXISTS (
-  4      SELECT T.BOOK_ISBN
-  5      FROM TEXT T
-  6      WHERE T.PUBLISHER = 'Miramax Books'
-  7      MINUS
-  8      SELECT BA.BOOK_ISBN
-  9      FROM BOOK_ADOPTION BA
- 10      WHERE BA.COURSE# = C.COURSE#
- 11  );
+SELECT C.DEPT
+FROM COURSE C
+WHERE NOT EXISTS (
+SELECT T.BOOK_ISBN
+FROM TEXT T
+WHERE T.PUBLISHER = 'Miramax Books'
+MINUS
+SELECT BA.BOOK_ISBN
+FROM BOOK_ADOPTION BA
+WHERE BA.COURSE# = C.COURSE#
+);
 
 ##Question 3f
 
-SQL> select distinct booktitle
-  2  from text natural join book_adoption natural join course
-  3  where course# in (
-  4  select course# from
-  5  enroll);
+select distinct booktitle
+from text natural join book_adoption natural join course
+where course# in (
+select course# from
+enroll);
 
 ##Question 3g
 
-SQL> SELECT BA.COURSE#
-  2  FROM BOOK_ADOPTION BA
-  3  WHERE BA.BOOK_ISBN IN (
-  4      SELECT T.BOOK_ISBN
-  5      FROM TEXT T3
-  6      WHERE T.PUBLISHER = 'Miramax Books'
-  7  )
-  8  GROUP BY BA.COURSE#
-  9  HAVING COUNT(DISTINCT BA.BOOK_ISBN) >= 2;
+SELECT BA.COURSE#
+FROM BOOK_ADOPTION BA
+WHERE BA.BOOK_ISBN IN (
+SELECT T.BOOK_ISBN
+FROM TEXT T3
+WHERE T.PUBLISHER = 'Miramax Books'
+)
+GROUP BY BA.COURSE#
+HAVING COUNT(DISTINCT BA.BOOK_ISBN) >= 2;
 
 ##Question 3h
 
-SQL> select name, regno, count(regno) as num_of_books
-  2  from student natural join enroll natural join book_adoption
-  3  group by name, regno
-  4  having count(regno)>= all (
-  5  select count(book_isbn)
-  6  from book_adoption
-  7  group by course#);
+select name, regno, count(regno) as num_of_books
+from student natural join enroll natural join book_adoption
+group by name, regno
+having count(regno)>= all (
+select count(book_isbn)
+from book_adoption
+group by course#);
 
 ##Question 3i
 
-SQL> select publisher, count(distinct book_isbn) as number_of_books_published
-  2  from text
-  3  where book_isbn in (
-  4  select book_isbn
-  5  from text)
-  6  group by publisher;
+select publisher, count(distinct book_isbn) as number_of_books_published
+from text
+where book_isbn in (
+select book_isbn
+from text)
+group by publisher;
 
 ##Question 3j
 
