@@ -88,8 +88,8 @@ int main()
         }
       }
     }
-    printf("\nParent process - Sorted alphabetical string is:  \n");
-    printf("%s\n", alpha);
+    printf("\nParent process id is %d \n",getpid());
+    printf("\nParent process - Sorted alphabetical string is: %s \n",alpha);
     printf("\n\n");
     sntb = send(s, alpha, sizeof(alpha), 0);
     if (sntb == -1) 
@@ -114,8 +114,8 @@ int main()
         }
       }
     }
-    printf("\nChild process - Sorted numerical string is:  \n");
-    printf("%s\n", num);
+    printf("Child process id is %d\n",getpid());
+    printf("\nChild process - Sorted numerical string is: %s \n",num);
     printf("\n\n");
     sntb = send(s, num, sizeof(num), 0);
     if (sntb == -1) 

@@ -16,7 +16,7 @@ void replaceAll(char *str, const char *oldWord, const char *newWord)
 
 
     /*
-     * Repeat till all occurrences are replaced.
+     * Repeat till all occurrences are replaced. 
      */
     while ((pos = strstr(str, oldWord)) != NULL)
     {
@@ -29,10 +29,10 @@ void replaceAll(char *str, const char *oldWord, const char *newWord)
         // Terminate str after word found index
         str[index] = '\0';
 
-        // Concatenate str with new word
+        // Concatenate str with new word 
         strcat(str, newWord);
-
-        // Concatenate str with remaining words after
+        
+        // Concatenate str with remaining words after 
         // oldword found index.
         strcat(str, temp + index + owlen);
     }
@@ -40,8 +40,8 @@ void replaceAll(char *str, const char *oldWord, const char *newWord)
 int main()
 {
 	int s,r,recb,sntb,x,ns,a=0;
-	printf("INPUT port number: ");
-	scanf("%d", &x);
+	// printf("INPUT port number: ");
+	// scanf("%d", &x);
 	socklen_t len;
 	struct sockaddr_in server,client;
 	char buff[50];
@@ -55,7 +55,7 @@ int main()
 	printf("\nSocket created.");
 
 	server.sin_family=AF_INET;
-	server.sin_port=htons(x);
+	server.sin_port=htons(1234);
 	server.sin_addr.s_addr=htonl(INADDR_ANY);
 
 	r=bind(s,(struct sockaddr*)&server,sizeof(server));
@@ -87,11 +87,11 @@ int main()
 	recb=recv(ns,buff,sizeof(buff),0);
 	if(recb==-1)
 	{
-		printf("\nMessage Recieving Failed");
+		printf("\nMessage Recieving Failed");		
 		close(s);
 		close(ns);
 		exit(0);
-	}
+	}	
 	printf("\nFile Name Recieved!\n");
 	/*printf("%s", buff);
 	printf("\n\n");
@@ -125,11 +125,11 @@ int main()
 	recb=recv(ns,buff,sizeof(buff),0);
 	if(recb==-1)
 	{
-		printf("\nMessage Recieving Failed");
+		printf("\nMessage Recieving Failed");		
 		close(s);
 		close(ns);
 		exit(0);
-	}
+	}	
 	ch = buff[0];
 	int i,n,n1,n2,j;
 	char str[50],str1[50],str2[50];
@@ -149,7 +149,7 @@ int main()
 		int find_result = 0;
 		char temp[512];
 		if((fp = fopen(fil, "r")) == NULL) {
-		printf("\nFile not found");
+		printf("\nFile not found");		
 		close(s);
 		close(ns);
 		exit(0);
@@ -186,11 +186,11 @@ int main()
 		recb=recv(ns,buff,sizeof(buff),0);
 	if(recb==-1)
 	{
-		printf("\nMessage Recieving Failed");
+		printf("\nMessage Recieving Failed");		
 		close(s);
 		close(ns);
 		exit(0);
-	}
+	}	
 		n=buff[1];
 		i=2;
 		for(j=0;j<n;j++)
@@ -204,7 +204,7 @@ int main()
     	FILE * fTemp;
     	char buffer[1000];
     	fPtr  = fopen(fil, "r");
-    	fTemp = fopen("replace.tmp", "w");
+    	fTemp = fopen("replace.tmp", "w"); 
     	if (fPtr == NULL || fTemp == NULL)
    		 {
         /* Unable to open file hence exit */
@@ -244,7 +244,7 @@ int main()
 		break;
 
 		case 3:printf("\nOrdering file..\n");
-
+		
     FILE * ptrFileLog = NULL;
     FILE * ptrSummary = NULL;
 

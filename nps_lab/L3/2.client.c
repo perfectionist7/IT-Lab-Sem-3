@@ -22,8 +22,8 @@ int main() {
   int s, r, recb, sntb, x;
   int sa;
   socklen_t len;
-  printf("INPUT port number: ");
-  scanf("%d", & x);
+  // printf("INPUT port number: ");
+  // scanf("%d", & x);
   struct sockaddr_in server, client;
   char buff[50];
   s = socket(AF_INET, SOCK_DGRAM, 0);
@@ -33,7 +33,7 @@ int main() {
   }
   printf("\nSocket created.");
   server.sin_family = AF_INET;
-  server.sin_port = htons(x);
+  server.sin_port = htons(1234);
   server.sin_addr.s_addr = inet_addr("127.0.0.1");
   sa = sizeof(server);
   len = sizeof(server);

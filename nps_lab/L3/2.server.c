@@ -43,7 +43,7 @@ int main()
   }
   printf("\nSocket created.\n");
   server.sin_family = AF_INET;
-  server.sin_port = htons(3388);
+  server.sin_port = htons(1234);
   server.sin_addr.s_addr = htonl(INADDR_ANY);
   len = sizeof(client);
   ca = sizeof(client);
