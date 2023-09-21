@@ -1,0 +1,71 @@
+#include <lpc17xx.h>
+#include<stdio.h>
+unsigned char seven_seg [10]={0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x67};
+int n,temp,j,i,k=0,x;
+void delay(){
+	LPC_TIM0->TCR=0X02;
+	LPC_TIM0->MCR=0X2;
+	LPC_TIM0->CTCR=0X0;
+	LPC_TIM0->PR=1;
+	LPC_TIM0->MR0=1;
+	LPC_TIM0->EMR=0X20;
+	LPC_TIM0->TCR=0X1;
+	while((LPC_TIM0->EMR&0X01)==0);
+}
+void downcounter(n)
+{
+	for(k=n;k>=0;k--)
+		{
+		n=k;
+		for(i=0;i<4;i++)
+		{
+			LPC_GPIO1->FIOPIN=i<<23;
+			temp=n%10;
+			LPC_GPIO0->FIOPIN=seven_seg[temp]<<4;
+			n=n/10;
+			for(j=0;j<100000;j++);
+		}
+		delay();	
+				x=LPC_GPIO0->FIOPIN;
+		    x=x&1<<21;
+				if(x==0)
+				{
+					return;
+				}
+	}
+}
+int main(void)
+{
+	SystemInit();
+	SystemCoreClockUpdate();
+	LPC_PINCON->PINSEL0=0;
+	LPC_PINCON->PINSEL3=0;
+	LPC_GPIO0->FIODIR=0xff<<4;
+	LPC_GPIO1->FIODIR=0xf<<23;
+	while(1){
+		x=LPC_GPIO0->FIOPIN;
+		x=x&1<<21;
+		if(x==0)
+		{
+		  for(;k<1000;k++)
+		   {
+			  n=k;
+		    for(i=0;i<4;i++)
+		     {
+					LPC_GPIO1->FIOPIN=i<<23;
+					temp=n%10;
+					LPC_GPIO0->FIOPIN=seven_seg[temp]<<4;
+					n=n/10;
+					for(j=0;j<50000;j++);
+				}
+			 for(j=0;j<50000;j++);
+				x=LPC_GPIO0->FIOPIN;
+		    x=x&1<<21;
+				if(x==0)
+				{
+					downcounter(k);
+				}
+	     }
+}
+}
+	}
