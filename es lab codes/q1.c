@@ -6,8 +6,8 @@ void delay(){
 	LPC_TIM0->TCR=0X02;
 	LPC_TIM0->MCR=0X2;
 	LPC_TIM0->CTCR=0X0;
-	LPC_TIM0->PR=1;
-	LPC_TIM0->MR0=1;
+	LPC_TIM0->PR=2999;
+	LPC_TIM0->MR0=999;
 	LPC_TIM0->EMR=0X20;
 	LPC_TIM0->TCR=0X1;
 	while((LPC_TIM0->EMR&0X01)==0);
@@ -58,7 +58,7 @@ int main(void)
 					n=n/10;
 					for(j=0;j<50000;j++);
 				}
-			 for(j=0;j<50000;j++);
+			 delay();
 				x=LPC_GPIO0->FIOPIN;
 		    x=x&1<<21;
 				if(x==0)
