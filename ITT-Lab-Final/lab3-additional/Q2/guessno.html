@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guess the Number</title>
+  <script>
+    function guessNumber() {
+      const randomNumber = Math.floor(Math.random() * 15) + 1;
+      console.log(randomNumber);
+      let userGuess, attempts = 0;
+
+      do {
+        userGuess = parseInt(prompt("Guess the number between 1 and 15:"));
+        attempts++;
+
+        if (userGuess === randomNumber) {
+          alert("Congratulations! You guessed the correct number in " + attempts + " attempts.");
+        } else if (userGuess < randomNumber) {
+          alert("Too low. Try again!");
+        } else {
+          alert("Too high. Try again!");
+        }
+
+      } while (userGuess !== randomNumber);
+    }
+  </script>
+</head>
+<body>
+
+  <h1>Guess the Number Game</h1>
+  <button onclick="guessNumber()">Start Game</button>
+
+</body>
+</html>

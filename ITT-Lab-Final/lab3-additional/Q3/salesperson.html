@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Salespeople Salaries</title>
+  <script>
+    function calculateSalary(grossSales) {
+      const baseSalary = 200;
+      const commissionRate = 0.09;
+      const totalSalary = baseSalary + (grossSales * commissionRate);
+      return Math.trunc(totalSalary);
+    }
+
+    function categorizeSalary(salary) {
+      if (salary >= 300 && salary <= 399) return 1;
+      else if (salary >= 400 && salary <= 499) return 2;
+      else if (salary >= 500 && salary <= 599) return 3;
+      else if (salary >= 600 && salary <= 699) return 4;
+      else if (salary >= 700 && salary <= 799) return 5;
+      else if (salary >= 800 && salary <= 899) return 6;
+      else if (salary >= 900 && salary <= 999) return 7;
+      else if (salary >=1000) return 8; 
+      else return ("not in range");
+    }
+
+    function displayResults() {
+      const salespeopleSalaries = [];
+
+      const n = parseInt(prompt("Enter the number of salesperson"));
+
+      for (let i = 0; i < n; i++) { // Assuming there are 10 salespeople for demonstration
+        const grossSales = parseFloat(prompt("Enter gross sales for salesperson " + (i + 1) + ":"));
+        const salary = calculateSalary(grossSales);
+        salespeopleSalaries.push(categorizeSalary(salary));
+      }
+
+      // Display the results
+      alert("Salaries Distribution:\n\n" +
+        "1: $300-$399\n" +
+        "2: $400-$499\n" +
+        "3: $500-$599\n" +
+        "4: $600-$699\n" +
+        "5: $700-$799\n" +
+        "6: $800-$899\n" +
+        "7: $900-$999\n" +
+        "8: $1000 and over\n\n" +
+        "Salespeople in each category:\n" + salespeopleSalaries.join(", "));
+    }
+  </script>
+</head>
+<body>
+
+  <h1>Salespeople Salaries</h1>
+  <button onclick="displayResults()">Calculate Salaries</button>
+
+</body>
+</html>

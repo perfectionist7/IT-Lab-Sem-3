@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Parking Charges Calculator</title>
+  <script>
+    function calculateCharges(hoursParked) {
+      const minimumFee = 2.00;
+      const hourlyRate = 0.50;
+      const maxHours = 3;
+
+      if (hoursParked <= maxHours) {
+        return minimumFee;
+      } else {
+        return minimumFee + (hoursParked - maxHours) * hourlyRate;
+      }
+    }
+
+    function displayCharges() {
+      const numCustomers = parseInt(prompt("Enter the number of customers:", 0));
+      const chargesArray = [];
+
+      for (let i = 1; i <= numCustomers; i++) {
+        const hoursParked = parseFloat(prompt("Enter hours parked for Customer " + i + ":", 0));
+        const charge = calculateCharges(hoursParked);
+
+        alert("Customer " + i + " parking charge: Rs. " + charge.toFixed(2));
+        chargesArray.push(charge);
+      }
+
+      alert("List of customers who parked in the previous day are: \n\n");
+      for( let i=0; i<numCustomers; i++) {
+        alert("Customer " + (i+1) + " had charges " + chargesArray[i]);
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <h1>Parking Charges Calculator</h1>
+  <button onclick="displayCharges()">Calculate Charges</button>
+
+</body>
+</html>

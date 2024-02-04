@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>
+        Changing Size
+    </title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <p id="changeableText">Move your mouse over this text to change its font size.</p>
+  <script>
+
+    var textElement = document.getElementById('changeableText');
+
+    textElement.addEventListener('mouseover', function() {
+      textElement.style.fontSize = '24px';
+    });
+
+
+    textElement.addEventListener('mouseout', function() {
+      textElement.style.fontSize = '16px';
+    });
+  </script>
+
+</body>
+</html>

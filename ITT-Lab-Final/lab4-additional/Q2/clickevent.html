@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+  <script>
+    function handleClick(event) {
+      let alertMessage = 'Page is Clicked!';
+
+      if (event.shiftKey) {
+        alertMessage += '\nShift key was held during the click.';
+      }
+
+      if (event.ctrlKey) {
+        alertMessage += '\nCtrl key was held during the click.';
+      }
+
+      alert(alertMessage);
+    }
+
+    document.addEventListener('click', handleClick);
+  </script>
+
+</body>
+</html>
