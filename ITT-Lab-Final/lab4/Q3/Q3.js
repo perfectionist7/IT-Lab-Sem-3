@@ -7,9 +7,3 @@ function bringToTop(element) {
 function resetPosition(element) {
   element.style.zIndex = oldValue;
 }
-
-// var boxes = document.getElementsByClassName("box");
-// Array.from(boxes).forEach((element, index) => {
-//   element.onmouseover = () => bringToTop(element);
-//   element.onmouseout = () => resetPosition(element);
-// });
