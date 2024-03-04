@@ -1,0 +1,14 @@
+Introduction 
+
+Process Model
+
+Architecture Design - 
+
+Overview and explain each componenets diagramatically 
+
+Use case diagram - 
+Activity diagra,
+
+Front-end UI/UX (description for each ui)
+
+conclusion
